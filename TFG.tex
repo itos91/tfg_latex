@@ -227,9 +227,9 @@ Hoxe en día todo está conectado á rede, non solo persoas conectadas a través
 	\label{fig:IoT}
 \end{figure}
 
-\section{Obxetivo}
+\section{Obxeto}
 
-O obxetivo deste proxecto vai ser o de realizar unha comunicación con servicios REST a un servidor mediante a conexión de un Arduino cun modulo ESP8266 a WiFi. Para elo, vaise dividir en compoñentes hardware (Arduino e periféricos) e a parte de programación.
+O obxetivo principal deste proxecto vai ser o de realizar a monitorización de un procesado de un pedido ou picking nun almacén para un operario a través dun terminal de operador inalambrico.
 
 \begin{figure}[H]
 	\begin{center}
@@ -239,7 +239,36 @@ O obxetivo deste proxecto vai ser o de realizar unha comunicación con servicios
 	\label{fig:IoT}
 \end{figure}
 
+Debido ós altos costes dos terminales, como por exemplo SYMBOL VC5090, pensouse en realizalo cunha placa Arduino e o módulo WiFi ESP8266 pola súa capacidade de programación e, por suposto, polo seu precio.
+Por outro lado, tamén conta cunha interfaz web para o almacén, podendo gestionar tanto os productos coma os pedidos.
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=10cm]{images/symbol_VC5090.jpg}
+	\end{center}
+	\caption{Terminal de operador SYMBOL VC5090 *http://www.datanet.com.au/}
+	\label{fig:IoT}
+\end{figure}
+
+\chapter{Preparación de pedidos ou picking}
+
+No mundo da loxística, realizar picking de un producto consiste en ir a unha estantería ou zona concreta dentro do almacén para recoller os productos requeridos para un pedido. É un proceso importante dentro empresas tanto pequenas coma grades, polo que é importante a súa optimización e mecanización.
+
+Dentro deste proceso, existen infinitas metodoloxías tradicionais de xestionalo, que veñen determinadas pola tipoloxía do almacén, niveis de servicios que da a empresa, etc. 
+Pódese clasificar segundo:
+
+\begin{itemize}
+    \item Onde o efectuamos
+    \item Como extraemos a mercancía
+    \item A unidade de extracción
+\end{itemize}
+
+En concreto neste proxecto, a metodoloxía vai ser picking de home a producto, de pedido a pedido en caixas completas.
+
+
+
+https://www.noegasystems.com/blog/logistica/preparacion-de-pedidos-o-picking
+https://www.entrepreneur.com/article/307730
 
 \chapter{Arduino}
 
@@ -401,16 +430,16 @@ A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con 
 Os pins de alimentación son os seguintes:
 
 \begin{itemize}
-\item \textbf{Vin.} A tensi�n de entrada ao taboleiro cando est� a usar unha fonte de enerx�a externa (a diferenza de 5 voltios da conexi�n USB ou outra fonte de alimentaci�n regulada). Pode fornecer a tensi�n a trav�s deste pin ou, se fornecer a tensi�n a trav�s do conector de enerx�a, acc�dese a trav�s deste pin.
-\item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerx�a desde a toma de alimentaci�n de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministraci�n de tensi�n a trav�s dos pinos de 5V ou 3.3V evita o regulador e pode danar a t�boa. Non o aconsellamos.
-\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo m�ximo actual � de 50 mA.
+\item \textbf{Vin.} A tensión de entrada ao taboleiro cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensi�n a trav�s deste pin ou, se fornecer a tensión a través do conector de enerx�a, acc�dese a trav�s deste pin.
+\item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerx�a desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
+\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
 \item \textbf{GND.} Pins de terra.
-\item \textbf{IOREF.} Este pin proporciona a referencia de tensi�n coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensi�n de tecto IOREF e seleccionar a fonte de enerx�a adecuada ou habilitar traductores de tensi�n nas sa�das para traballar cos 5V ou 3.3V.
+\item \textbf{IOREF.} Este pin proporciona a referencia de tensión coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensión de tecto IOREF e seleccionar a fonte de enerxía adecuada ou habilitar traductores de tensión nas saídas para traballar cos 5V ou 3.3V.
 \end{itemize}
 
 \chapter{Pantalla LCD}
 
-\section{Introducci�n}
+\section{Introducción}
 
 Para visualizar os datos aportados polo aut�mata programable empregarase unha pantalla LCD da marca Midas que ten unha resoluci�n de 4 li�as x 40 caracteres. 
 
@@ -422,7 +451,7 @@ Para visualizar os datos aportados polo aut�mata programable empregarase unha 
 	\label{fig:PantallaLCD}
 \end{figure}
 
-\section{Esquema El�ctrico}
+\section{Esquema Eléctrico}
 
 A conexión da pantalla coa placa Arduino Mega vai ser da seguinte maneira:
 
