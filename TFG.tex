@@ -90,14 +90,14 @@
 
 
 
-% P�gina que contiene el �ndice de contenidos del TFG
+% Página que contiene el �ndice de contenidos del TFG
 \renewcommand{\contentsname}{Contido do TFG}
 \addcontentsline{toc}{section}{Contidos do TFG}
 %\setcounter{tocdepth}{3}
 {\hypersetup{hidelinks}\tableofcontents}
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 
-% P�gina que contiene el �ndice de listas de figuras
+% Página que contiene el �ndice de listas de figuras
 \cleardoublepage
 \phantomsection
 \renewcommand*\listfigurename{Índice de figuras}
@@ -105,7 +105,7 @@
 {\hypersetup{hidelinks}\listoffigures}
 \addtocontents{lof}{\protect\thispagestyle{fancy}}
 
-% P�gina que contiene el �ndice de listas de tablas
+% Página que contiene el �ndice de listas de tablas
 \cleardoublepage
 \phantomsection
 \renewcommand*\listtablename{Índice de tablas}
@@ -114,7 +114,7 @@
 \addtocontents{lot}{\protect\thispagestyle{fancy}}
 
 
-% P�gina que contiene el �ndice de listados de programaci�n
+% Página que contiene el �ndice de listados de programaci�n
 \renewcommand\lstlistlistingname{Listado de códigos de programación}
 \renewcommand\lstlistingname{Código}
 \cleardoublepage\phantomsection
@@ -219,9 +219,25 @@
 
 Hoxe en día todo está conectado á rede, non solo persoas conectadas a través de un dispositivo, senón a calqueira "cousa" que teña algunha funcionalidade e que poida ser controlado desde calqueira dispositivos, xa sexa desde un smartphone, un ordenador ou desde un smartwatch. Esto é debido á implementación de IoT (Internet of Things). Pódese definir como "unha rede que conecta "things" identificables de maneira única a Internet. As "things" teñen capacidades de captura/actuación e de potencial de programación. Mediante a explotación  da identificación e captura única, pódese recoller información mais cambiar o estado do "thing" onde queiras, en calquer momento e por calquer motivo" \cite{IoT}
 
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=10cm]{images/IoT.png}
+	\end{center}
+	\caption{Internet of Things *http://www.pcworldenespanol.com/}
+	\label{fig:IoT}
+\end{figure}
+
 \section{Obxetivo}
 
 O obxetivo deste proxecto vai ser o de realizar unha comunicación con servicios REST a un servidor mediante a conexión de un Arduino cun modulo ESP8266 a WiFi. Para elo, vaise dividir en compoñentes hardware (Arduino e periféricos) e a parte de programación.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=10cm]{images/esquema_xeral.png}
+	\end{center}
+	\caption{Esquema xeral do proxecto}
+	\label{fig:IoT}
+\end{figure}
 
 
 
