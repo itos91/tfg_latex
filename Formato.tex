@@ -1,0 +1,153 @@
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{afterpage}% Necesario para introdicur páginas A3
+\usepackage{amsmath,amsthm,amstext,amssymb}
+\usepackage{capt-of}
+\usepackage{colortbl}
+\usepackage{graphicx}% Permite la introducción de figuras
+\usepackage{array,fancyhdr,graphicx,subfigure,titlesec,titletoc,xcolor}
+\usepackage{emptypage}% evita la numeración de las páginas en blanco
+\usepackage{etoolbox}
+\usepackage{listings} % premite la introducción de códigos vhdl
+\usepackage[paper=A4,pagesize]{typearea}%necesario para introducir páginas A3
+\usepackage{lscape}% Necesario para páginas apaisadas
+\usepackage{pdfpages}% Permite introducir documentos pdf
+\usepackage[font=small,bf]{caption}% Formato del caption
+\usepackage{rotating}% Rotaciones
+\usepackage{setspace,subfigure}
+\usepackage{tocstyle}
+\usepackage{codigomatlab}
+\usepackage{titlesec}
+\usepackage{color}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{pstricks}
+\usepackage{pst-node}
+\usepackage{pst-blur}
+\usepackage{amsmath,amssymb}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{bigstrut}
+\usepackage{eurosym}
+%\usepackage{inputenc}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\documento}{ÍÍNDICE XERAL}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Incluye la bibliografía como sección
+\makeatletter
+\renewenvironment{thebibliography}[1]
+     {\chapter{\bibname}% esta línea cambia la bibliografía a la categoría sección
+      \@mkboth{\MakeUppercase\bibname}{\MakeUppercase\bibname}
+      \list{\@biblabel{\@arabic\c@enumiv}}%
+           {\settowidth\labelwidth{\@biblabel{#1}}
+            \leftmargin\labelwidth
+            \advance\leftmargin\labelsep
+            \@openbib@code
+            \usecounter{enumiv}
+            \let\p@enumiv\@empty
+            \renewcommand\theenumiv{\@arabic\c@enumiv}}
+      \sloppy
+      \clubpenalty4000
+      \@clubpenalty \clubpenalty
+      \widowpenalty4000%
+      \sfcode`\.\@m}
+     {\def\@noitemerr
+       {\@latex@warning{Empty `thebibliography' environment}}
+      \endlist}
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%FORMATO DE LA HOJA
+\renewcommand{\baselinestretch}{1.25}
+\headsep 8mm        \topmargin -1.5cm     \textheight 24.5cm     \textwidth 16cm     \oddsidemargin 0.5cm     \evensidemargin -0.1cm
+ \footnotesep=20pt               \footskip=38pt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formato del título de cada parte
+\titleformat{\part}[display]
+  {\normalfont\huge\bfseries}
+	{}{0pt}{\centering}
+	
+\titlespacing*{\part}{0pt}{0pt}{20pt}
+\titleclass{\part}{straight}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Formato del título de cada capítulo
+\titleformat{\chapter}[hang] 
+{\normalfont\huge\bfseries}{\thechapter}{1em}{} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Espacio vertical en TOC
+%\makeatletter
+%\pretocmd{\part}{\addtocontents{toc}{\protect\addvspace{10\p@}}}{}{}
+%\pretocmd{\chapter}{\addtocontents{toc}{\protect\addvspace{2\p@}}}{}{}
+%\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%Formato de letra
+\usepackage{lmodern}
+\renewcommand*\familydefault{\sfdefault} %% Only if the base font of the document 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\spanishtablename}{Tabla}% escribe Tabla
+%\renewcommand*\listtablename{Índice de tablas}
+%\renewcommand{\contentsname}{Contidos do PFG}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{secnumdepth}{5}% Profundidad del índice de contenidos
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\numberwithin{equation}{subsection}
+\usepackage{chngcntr}
+\counterwithin{table}{subsection}% Numera las tablas por sucsecciones
+\counterwithin{figure}{subsection}% Numera las figuras por sucsecciones
+
+\DeclareCaptionLabelSeparator{guion}{\ --\ }
+\captionsetup[figure]{labelsep=guion}% establece un guión como separador en el pie de figura
+\captionsetup[table]{labelsep=guion}% establece un guión como separador en el pie de tabla
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+\newfloat{Plano}{p}{pln}%[chapter]
+\captionsetup[Plano]{labelformat=empty,labelsep=none,position=below}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{float}
+\newfloat{Circuito}{c}{cir}%[chapter]
+\captionsetup[Circuito]{labelformat=empty,labelsep=none}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[subfigure]{tocloft}% Permite cambiar el ancho de la numeración de listas de figuras y tablas
+\addtolength{\cfttabnumwidth}{17pt}
+\addtolength{\cftfignumwidth}{17pt}
+\makeatletter
+\let\l@lstlisting\l@figure
+\makeatother
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\patchcmd{\chapter}{plain}{fancy}{}{}% Permite que el formato de la primera página sea como los demás
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\AtBeginDocument{\addtocontents{toc}{\protect\thispagestyle{fancy}}} % Permite que el formato de la página de tableofcontents sea como los demás
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Uso de las cabeceras fancy
+\fancyhf{}
+\fancyfoot[R]{\small \thepage}
+\fancyfoot[C]{\small \raisebox{0pt}{\documento}}
+\fancyhead[L]{\small \titulouno \ \\ \alumno}
+% Introducir la especialidad-----------------------------------------------------------------------------------------------------
+\fancyhead[C]{}% Escribir ELECTRICIDAD o ELECTRÓNICA                                                         -
+% Introducir el número del PFG---------------------------------------------------------------------------------------------------
+\fancyhead[R]{}% E es la especialidad 1=Electrónica 2=Electricidad   XXX es el número del proyecto     -
+% Introducir la convocatoria del PFG---------------------------------------------------------------------------------------------
+\fancyfoot[L]{}% Por ejemplo JUNIO 2014
+
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Paquete hyperref
+\usepackage[colorlinks=true,linkcolor=red,citecolor=red,urlcolor=red]{hyperref}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Se cambio el nombre del caption para los códigos
+\renewcommand\lstlistingname{Código}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Permite meter figuras partidas en páginas
+\newcommand\Image[3][]{
+  \tabular[b]{@{}c@{}}\includegraphics[#1]{#2}\\
+    {\small #3}
+  \endtabular}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
