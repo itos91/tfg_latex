@@ -250,28 +250,37 @@ Por outro lado, tamén conta cunha interfaz web para o almacén, podendo gestion
 	\label{fig:IoT}
 \end{figure}
 
+Para elo, vaise dividir o documento Memoria en requerimentos hardware, onde se vai detallar os compoñentes hardware usados, e requerimentos software, onde se explicará a parte de programación da parte de \txtbf{Arduino} e a parte de \textbf{Django RESTful Service}.
+
 \chapter{Preparación de pedidos ou picking}
 
 No mundo da loxística, realizar picking de un producto consiste en ir a unha estantería ou zona concreta dentro do almacén para recoller os productos requeridos para un pedido. É un proceso importante dentro empresas tanto pequenas coma grades, polo que é importante a súa optimización e mecanización.
 
-Dentro deste proceso, existen infinitas metodoloxías tradicionais de xestionalo, que veñen determinadas pola tipoloxía do almacén, niveis de servicios que da a empresa, etc. 
-Pódese clasificar segundo:
+\section{Formas de preparación de pedido}
+Dentro picking, existen infinitas metodoloxías tradicionais de xestionalo, que veñen determinadas pola tipoloxía do almacén, niveis de servicios que da a empresa, etc. 
+Pódense clasificar segundo:
 
 \begin{itemize}
     \item Onde o efectuamos
+        \begin{itemize}
+            \item \textbf{De home a pedido:} Os operarios recorren o almacén e seleccionar o producto. 
+            \item \textbf{De producto a home:} O producto é o que se desplaza ata o posto no que está o operario. Ten unha maior inversión económica pero reduce o tempo.
+        \end{itemize}
     \item Como extraemos a mercancía
+        \begin{itemize}
+            \item \textbf{Pedido a pedido: } Os operarios preparan de forma individual os pedidos, é decir, solo preparan un pedido á vez. 
+            \item \textbf{Por oleaxe: } Realizan picking de varios pedidos á vez. Merece a pena se hai poucos pedidos e moita repetividade. 
+        \end{itemize}
     \item A unidade de extracción
+        \begin{itemize}
+            \item \textbf{De caixas completas.}
+            \item \textbf{De unidades soltas.}
+        \end{itemize}
 \end{itemize}
 
-En concreto neste proxecto, a metodoloxía vai ser picking de home a producto, de pedido a pedido en caixas completas.
+En concreto neste proxecto, a metodoloxía vai ser picking de home a producto, de pedido a pedido e de unidades soltas.
 
-
-
-https://www.noegasystems.com/blog/logistica/preparacion-de-pedidos-o-picking
-https://www.entrepreneur.com/article/307730
-
-\chapter{Arduino}
-
+\chapter{Compoñentes hardware: Arduino}
 \section{Historia}
 
 Arduino nace polo ano 2005 como un proxecto de estudiantes no Instituto de Diseño Interactivo Ivrea de Italia (IDII), onde os alumnos experimentaban con distintos tipos de microcontroladores. A idea era crear unha ferramenta moderna, sencilla, barata e fácil de usar. Foi así como empezaron a desenvolvela baixo a licencia de Open Source, para que todo o mundo poidese contribuir explotando por todo o mundo.
@@ -338,11 +347,47 @@ MKRZero & SAMD21 \newline  Cortex-M0+32bit low power \newline ARM MCU & 3.3 V & 
 \end{center}
 \end{table}
 
-\section{Entorno de Programación}
+Neste proxecto vaise usar Arduino Mega 2560.
+
+\subsection{Arduino Mega 2560}
+
+O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o microcontrolador; simplemente conéctase a unha computadora con un cable USB ou encéndese cun adaptador AC-to-DC ou batería para comezar. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=7cm]{images/arduino_mega.jpg *}
+	\end{center}
+	\caption{Arduino Mega 2560}
+	\label{fig:ArduinoMega}
+\end{figure}
+
+\subsection{Alimentación eléctrica}
+
+O Mega 2560 pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía está seleccionada automaticamente. 
+
+A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con menos de 7V, con todo, o pin de 5V pode fornecer menos de 5V e pode volverse inestable. Se usa máis de 12V, o regulador de voltaxe pode sobrecalentarse e dañala. O rango recomendado é de 7 a 12V.
+
+Os pines de alimentación son os seguintes:
+
+\begin{itemize}
+\item \textbf{Vin.} A tensión de entrada ao taboleiro cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensión a través deste pin ou, se fornecer a tensión a través do conector de enerxía, accédese a través deste pin.
+\item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerxía desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
+\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
+\item \textbf{GND.} Pins de terra.
+\item \textbf{IOREF.} Este pin proporciona a referencia de tensión coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensión de tecto IOREF e seleccionar a fonte de enerxía adecuada ou habilitar traductores de tensión nas saídas para traballar cos 5V ou 3.3V.
+\end{itemize}
+
+\chapter{Compoñentes software}
+
+Neste capítulo vaise dividir en dúas partes: a parte de programación do Arduino Mega 2560 e a parte da creación do servidor web con servicios REST.
+
+\section{Programación Arduino}
+
+\subsection{Entorno de Programación}
 
 O entorno de desenvolvemento integrado (Integrated Development Environment ou IDE) é un programa informático composto por un conxunto de ferramentas de programación. 
 
-Arduino ten un IDE propio chamado Arduino IDE,pero por motivos de comodidade vaise empregar un software chamado Atom con un plugin chamado PlataformIO que nos vai permitir poder compilar, subir e debbugear código.
+Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom con un plugin chamado PlataformIO, que nos vai permitir poder compilar, subir e debbugear código na placa.
 
 \begin{figure}[H]
 	\begin{center}
@@ -352,7 +397,7 @@ Arduino ten un IDE propio chamado Arduino IDE,pero por motivos de comodidade vai
 	\label{fig:Atom}
 \end{figure}
 
-Para a creación dun novo proxecto, faise click en New Project, poñendolle un nome e seleccionando a placa usada, que neste caso vai ser Arduino Mega 2560.
+Para a creación dun novo proxecto, faise click en New Project, poñéndolle un nome e seleccionando a placa usada, que neste caso vai ser Arduino Mega 2560.
 
 \begin{figure}[H]
 	\begin{center}
@@ -361,8 +406,6 @@ Para a creación dun novo proxecto, faise click en New Project, poñendolle un n
 	\caption{Novo Proxecto}
 	\label{fig:NewProject}
 \end{figure}
-
-
 
 \subsection{Sketches}
 
@@ -398,50 +441,14 @@ Esto vai ser útil á hora do desenvolvemento xa que nos permite imprimir por pa
  Para eso iremos o apartado Serial Monitor e configuraremos o porto no que temos conectada a placa e os baudios:
  
  fotooooooo
-
-\section{Arduino Mega 2560}
-
-O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o microcontrolador; simplemente conéctase a unha computadora con un cable USB ou encéndese cun adaptador AC-to-DC ou batería para comezar. 
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=7cm]{images/arduino_mega.jpg}
-	\end{center}
-	\caption{Arduino Mega 2560}
-	\label{fig:ArduinoMega}
-\end{figure}
-
-\subsection{Programación}
-
-Arduino Mega vai ser programado mediante o framework de Atom.
-
-O ATmega2560 no Mega 2560 v�n preprogramado cun bootloader que lle permite cargar un novo c�digo sen o uso dun programador de hardware externo. Comun�case utilizando o protocolo STK500 orixinal.
-
-Tamén pode omitir o bootloader e programar o microcontrolador a través do encabezado ICSP (In-Circuit Serial Programming) usando Arduino ISP ou similar.
-
-\subsection{Alimentaci�n el�ctrica}
-
-O Mega 2560 pode ser alimentado a trav�s da conexi�n USB ou cunha fonte de alimentaci�n externa. A fonte de enerx�a est� seleccionada automaticamente. 
-
-A alimentaci�n externa (non USB) pode vir dende un adaptador AC-to-DC (wall-wart) ou bater�a. O adaptador p�dese conectar conectando un enchufe central de 2,1 mil�metros no conector de alimentaci�n da placa. O porto dunha bater�a pode ser iconectado nos encabezados GND e Vin pin do conector POWER. 
-
-A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con menos de 7V, con todo, o pin de 5V pode fornecer menos de cinco voltios eo taboleiro pode volverse inestable. Se usa m�is de 12V, o regulador de voltaxe pode sobrecalentarse e danar o taboleiro. O rango recomendado � de 7 a 12 voltios.
-
-Os pins de alimentación son os seguintes:
-
-\begin{itemize}
-\item \textbf{Vin.} A tensión de entrada ao taboleiro cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensi�n a trav�s deste pin ou, se fornecer a tensión a través do conector de enerx�a, acc�dese a trav�s deste pin.
-\item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerx�a desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
-\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
-\item \textbf{GND.} Pins de terra.
-\item \textbf{IOREF.} Este pin proporciona a referencia de tensión coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensión de tecto IOREF e seleccionar a fonte de enerxía adecuada ou habilitar traductores de tensión nas saídas para traballar cos 5V ou 3.3V.
-\end{itemize}
+ 
+ 
 
 \chapter{Pantalla LCD}
 
 \section{Introducción}
 
-Para visualizar os datos aportados polo aut�mata programable empregarase unha pantalla LCD da marca Midas que ten unha resoluci�n de 4 li�as x 40 caracteres. 
+Para visualizar os datos aportados polo autómata programable empregarase unha pantalla LCD da marca Midas que ten unha resoluci�n de 4 li�as x 40 caracteres. 
 
 \begin{figure}[H]
 	\begin{center}
