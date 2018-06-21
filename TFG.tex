@@ -252,11 +252,13 @@ Por outro lado, tamén conta cunha interfaz web para o almacén, podendo gestion
 
 Para elo, vaise dividir o documento Memoria en requerimentos hardware, onde se vai detallar os compoñentes hardware usados, e requerimentos software, onde se explicará a parte de programación da parte de \txtbf{Arduino} e a parte de \textbf{Django RESTful Service}.
 
-\chapter{Preparación de pedidos ou picking}
+\chapter{Conceptos previos}
+
+\section{Preparación de pedidos ou picking}
 
 No mundo da loxística, realizar picking de un producto consiste en ir a unha estantería ou zona concreta dentro do almacén para recoller os productos requeridos para un pedido. É un proceso importante dentro empresas tanto pequenas coma grades, polo que é importante a súa optimización e mecanización.
 
-\section{Formas de preparación de pedido}
+\subsection{Formas de preparación de pedido}
 Dentro picking, existen infinitas metodoloxías tradicionais de xestionalo, que veñen determinadas pola tipoloxía do almacén, niveis de servicios que da a empresa, etc. 
 Pódense clasificar segundo:
 
@@ -280,14 +282,14 @@ Pódense clasificar segundo:
 
 En concreto neste proxecto, a metodoloxía vai ser picking de home a producto, de pedido a pedido e de unidades soltas.
 
-\chapter{Compoñentes hardware: Arduino}
-\section{Historia}
+\section{Arduino}
+\subsection{Historia}
 
 Arduino nace polo ano 2005 como un proxecto de estudiantes no Instituto de Diseño Interactivo Ivrea de Italia (IDII), onde os alumnos experimentaban con distintos tipos de microcontroladores. A idea era crear unha ferramenta moderna, sencilla, barata e fácil de usar. Foi así como empezaron a desenvolvela baixo a licencia de Open Source, para que todo o mundo poidese contribuir explotando por todo o mundo.
 
-\section{Placas}
+\subsection{Placas}
 
-Hai moitas variedades de placas. Na táboa de abaixo móstrase as características das principais:
+Hai moitas variedades de placas. Na táboa de abaixo móstranse as características das principais:
 
 \begin{table}[htb]
 \begin{center}
@@ -343,45 +345,11 @@ MKRZero & SAMD21 \newline  Cortex-M0+32bit low power \newline ARM MCU & 3.3 V & 
 \end{tabular}
 }
 \caption{Comparación de placas Arduino}
-\label{taboa:comparacion}
+\label{taboa:comparacionPlacasArduino}
 \end{center}
 \end{table}
 
 Neste proxecto vaise usar Arduino Mega 2560.
-
-\subsection{Arduino Mega 2560}
-
-O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o microcontrolador; simplemente conéctase a unha computadora con un cable USB ou encéndese cun adaptador AC-to-DC ou batería para comezar. 
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[width=7cm]{images/arduino_mega.jpg *}
-	\end{center}
-	\caption{Arduino Mega 2560}
-	\label{fig:ArduinoMega}
-\end{figure}
-
-\subsection{Alimentación eléctrica}
-
-O Mega 2560 pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía está seleccionada automaticamente. 
-
-A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con menos de 7V, con todo, o pin de 5V pode fornecer menos de 5V e pode volverse inestable. Se usa máis de 12V, o regulador de voltaxe pode sobrecalentarse e dañala. O rango recomendado é de 7 a 12V.
-
-Os pines de alimentación son os seguintes:
-
-\begin{itemize}
-\item \textbf{Vin.} A tensión de entrada ao taboleiro cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensión a través deste pin ou, se fornecer a tensión a través do conector de enerxía, accédese a través deste pin.
-\item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerxía desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
-\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
-\item \textbf{GND.} Pins de terra.
-\item \textbf{IOREF.} Este pin proporciona a referencia de tensión coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensión de tecto IOREF e seleccionar a fonte de enerxía adecuada ou habilitar traductores de tensión nas saídas para traballar cos 5V ou 3.3V.
-\end{itemize}
-
-\chapter{Compoñentes software}
-
-Neste capítulo vaise dividir en dúas partes: a parte de programación do Arduino Mega 2560 e a parte da creación do servidor web con servicios REST.
-
-\section{Programación Arduino}
 
 \subsection{Entorno de Programación}
 
@@ -415,7 +383,7 @@ Os programas de Arduino, tamén chamados Sketch, están compostos por un solo fi
 
 As librerías son partes de código feitas por terceiras persoas que usamos na nosa programación. Esto facilita á hora de programar e permite a abstracción facendo que o noso programa sexa moito máis fácil de elaborar e entender.
 
-Dispomos de infinidade de librerías para facilitarnos traballo, sendo todas elas Open Source.
+Disponse de infinidade de librerías para facilitar traballo, sendo todas elas Open Source.
 
 Normalmente veñen comprimidas nun archivo ZIP e conteñen:
 \begin{itemize}
@@ -424,7 +392,7 @@ Normalmente veñen comprimidas nun archivo ZIP e conteñen:
 \item Un directorio con exemplos con varios sketches de exemplo para axudarnos a entendela.
 \end{itemize}
 
-Para incluir as librerías no noso proxecto, na carpeta chamada "lib" importatemos estas creando un packete para cada unha.
+Para incluir as librerías no noso proxecto, na carpeta chamada "lib" importaranse, creando un packete para cada unha.
 
 \begin{figure}[H]
 	\begin{center}
@@ -439,16 +407,73 @@ Para incluir as librerías no noso proxecto, na carpeta chamada "lib" importatem
 O plugin PlataformIO ten tamén a opción mostrar o que se comunique ca placa Arduino por medio do porto Serial.
 Esto vai ser útil á hora do desenvolvemento xa que nos permite imprimir por pantalla datos ou estadísticas.
  Para eso iremos o apartado Serial Monitor e configuraremos o porto no que temos conectada a placa e os baudios:
- 
- fotooooooo
- 
- 
 
-\chapter{Pantalla LCD}
+\section{API REST}
 
-\section{Introducción}
+API (Application Programming Incerface) é unha colección de funcións e métodos desenvolvidas para que outros usuarios poidan usalas. 
+REST (Representatioal State Transfer) é unha arquitectura de desarrollo web que usa o estándar HTTP. 
+Con API REST vai permitir o uso de unha función ou método que pertence a unha plataforma para o uso.
 
-Para visualizar os datos aportados polo autómata programable empregarase unha pantalla LCD da marca Midas que ten unha resoluci�n de 4 li�as x 40 caracteres. 
+\subsection{Arquitectura}
+
+\subsubsection{Identificación de recursos con URI's}
+
+Un recurso representa unha sección, arquivo ou contido que queremos obter ou modificar. Para poder identificalo, usaremos URI's, que teñen que cumprir:
+\begin{itemize}
+    \item Os nomes non poden levar verbos.
+    \item Deben ser únicas.
+    \item Non deben tomar en conta o formato.
+    \item Deben ter unha xerarquía lóxica.
+    \item Os filtrados de información faranse mediante parámetros HTTP.
+    \item Debe usarse a súa forma plural.
+\end{itemize}
+
+\subsubsection{Métodos HTTP}
+
+Os principais métodos son:
+
+\begin{itemize}
+    \item GET: Consulta e lectura de recursos.
+    \item POST: Creación de recursos.
+    \item PUT: Edición de recursos.
+    \item DELETE: Eliminación de recursos.
+    \item PATCH: Edicion de partes de recursos.
+\end{itemize}
+
+\chapter{Compoñentes Hardware}
+\section{Arduino Mega 2560}
+
+O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o microcontrolador; simplemente conéctase a unha computadora con un cable USB ou encéndese cun adaptador AC-to-DC ou batería para comezar. 
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=7cm]{images/arduino_mega.jpg}
+	\end{center}
+	\caption{Arduino Mega 2560 *http://arduino.cc}
+	\label{fig:ArduinoMega}
+\end{figure}
+
+\subsection{Alimentación eléctrica}
+
+O Mega 2560 pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía está seleccionada automaticamente. 
+
+A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con menos de 7V, con todo, o pin de 5V pode fornecer menos de 5V e pode volverse inestable. Se usa máis de 12V, o regulador de voltaxe pode sobrecalentarse e dañala. O rango recomendado é de 7 a 12V.
+
+Os pines de alimentación son os seguintes:
+
+\begin{itemize}
+\item \textbf{Vin.} A tensión de entrada ao taboleiro cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensión a través deste pin ou, se fornecer a tensión a través do conector de enerxía, accédese a través deste pin.
+\item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerxía desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
+\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
+\item \textbf{GND.} Pins de terra.
+\item \textbf{IOREF.} Este pin proporciona a referencia de tensión coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensión de tecto IOREF e seleccionar a fonte de enerxía adecuada ou habilitar traductores de tensión nas saídas para traballar cos 5V ou 3.3V.
+\end{itemize}
+
+\section{Módulos ou periféricos}
+
+\subsection{Pantalla LCD}
+
+Para visualizar os datos aportados polo autómata programable empregarase unha pantalla LCD da marca Midas que ten unha resolución de 4 liñas x 40 caracteres. 
 
 \begin{figure}[H]
 	\begin{center}
@@ -458,7 +483,7 @@ Para visualizar os datos aportados polo autómata programable empregarase unha p
 	\label{fig:PantallaLCD}
 \end{figure}
 
-\section{Esquema Eléctrico}
+\subsubsection{Esquema Eléctrico}
 
 A conexión da pantalla coa placa Arduino Mega vai ser da seguinte maneira:
 
@@ -466,11 +491,11 @@ A conexión da pantalla coa placa Arduino Mega vai ser da seguinte maneira:
 	\begin{center}
 		\includegraphics[width=15cm]{images/conexionArduinoLCD.png}
 	\end{center}
-	\caption{Conexi�n placa Arduino Mega con pantalla LCD Midas}
+	\caption{Conexión placa Arduino Mega con pantalla LCD Midas}
 	\label{fig:ConexionESP8266}
 \end{figure}
 
-\begin{table}[htbt]
+\begin{table}[h]
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -484,7 +509,7 @@ Arduino & Pantalla Midas & Color \\
 \hline
 35 & DB7 & Morado \\
 \hline
-36 & E1 & Marr�n \\
+36 & E1 & Marrón \\
 \hline
 37 & E2 & Rosa \\
 \hline
@@ -495,61 +520,32 @@ Arduino & Pantalla Midas & Color \\
 GND & Vss & Negro \\
 \hline
 \end{tabular}
-\caption{Conexi�n pines entre Arduino e Pantalla LCD Midas}
+\caption{Conexión pines entre Arduino e Pantalla LCD Midas}
 \label{TablaArduinoPantalla}
 \end{center}
 \end{table}
 
-Adem�is, conectarase un potenci�metro de 10K para controlar a alimentaci�n da pantalla que ter� a seguinte conexi�n:
+Para o control de alimentación, e, polo tanto, para o controlo de brillo da pantalla, vaise añadir un potenciómetro de 10k que ten o esquema reflexado na figura {TablaArduinoPantalla} e os seguintes pines:
 
 \begin{table}[htbt]
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
-Potenci�metro & Pantalla Midas & Arduino\\
+Potenciómetro & Pantalla Midas & Arduino\\
 \hline
 IN & Vdd & 5V \\
 \hline
 OUT & V0 & -\\
 \hline
 \end{tabular}
-\caption{Conexi�n do potenci�metro}
+\caption{Conexión do potenciómetro}
 \label{TablaPotenciometro}
 \end{center}
 \end{table}
 
-\section{Programaci�n}
+\subsection{Teclado Matricial}
 
-Vaise usar a librer�a \textit{PantallaMidas} para manexar a parte de programaci�n da pantalla LCD. Esta librer�a inicial�zase pasandolle por par�metros � constructor os pines que est� conectado. Faise da seguinte maneira:
-
-\begin{lstlisting}] 
-PantallaMidas pantalla(DB4, DB5, DB6, DB7, E1, E2, RS);
-\end{lstlisting}
-
-
-\section{Configuraci�n}
-
-Para inicializar a pantalla LCD, d�bese configurala. Neste caso vaise usar a configuraci�n de bus de 4 bits e ten os seguintes pasos reflexados na Figura.
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{images/inicializar_lcd.png}
-	\end{center}
-	\caption{Diagrama de Flujo iniciaci�n pantalla LCD Midas}
-	\label{fig:DiagramaFlujoPantalla}
-\end{figure}
-
-Para elo, usarase � metodo \textit{configura} como se mostra a continuaci�n:
-\begin{lstlisting}] 
-pantalla.configura();
-\end{lstlisting}
-
-
-\chapter{Teclado Matricial}
-
-\section{Introducci�n}
-
-Para manexar os datos do aut�mata programable de maneira remota vaise usar un teclado matricial 4x4 da marca Storm, xa que vai permitir tanto poder teclear un numero decimal como desplazarnos por os menus creados. Esta secci�n vaise dividir en d�as partes: por un lado a parte do hardware e por outra a parte do software.
+Para poder indicarlle ó terminal que se completou unha caixa, vaise usar un teclado matricial 4x4.
 
 \begin{figure}[H]
 	\begin{center}
@@ -559,19 +555,19 @@ Para manexar os datos do aut�mata programable de maneira remota vaise usar un 
 	\label{fig:TecladoStorm}
 \end{figure}
 
-\section{Esquema El�ctrico}
+\subsubsection{Esquema Eléctrico}
 
-Para o uso de este compo�ente, vaise conectar o microcontrolador Arduino da seguinte maneira:
+Para o uso de este compoñente, vaise conectar da seguinte maneira:
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[scale=0.8]{images/conexionArduinoKeypad.png}
 	\end{center}
-	\caption{Conexi�n placa Arduino Mega con teclado 4x4 Matrix}
+	\caption{Conexión placa Arduino Mega con teclado 4x4 Matrix}
 	\label{fig:ConexionESP8266}
 \end{figure}
 
-\begin{table}[htbt]
+\begin{table}[H]
 \begin{center}
 \begin{tabular}{|c|c|c|}
 \hline
@@ -599,95 +595,60 @@ Arduino & Keypad Storm & Color \\
 \end{center}
 \end{table}
 
+\subsection{ESP8266}
 
+É un microprocesador de baixo custo con WiFi integrado fabricado por Espressif. Supuxo unha revolución á hora de conectar o Arduino a WiFi, xa que as placas existentes eran demasiado caras, como por exemplo WiFi Shield.
 
-\section{Programación}
+Ademáis, pode comportarse como un procesador completo, con moita máis potencia que a maioría das placas Arduino.
 
-Para usar este compo�ente, elaborouse unha librer�a en C++ que permite a identificaci�n da tecla pulsada. A librer�a ch�mase \textit{Teclado4x4} e est� reflexada no anexo I.
-
-\subsection{Configuraci�n}
-
-Para poder usar esta clase, hai que declarar un constructor pasandolle por referencia os pines e un String cos caracteres asociados. Un exemplo � o seguinte:
-
-\begin{lstlisting}] 
-Teclado4x4 teclado(F1, F2, F3, F4, C1, C2, C3, C4, caracteres);
-\end{lstlisting}
-
-Unha vez feito o constructor, a funci�n \textit{configura} vai configurar o teclado para poder manexalo.
-
-\begin{lstlisting}
-teclado.configura();
-\end{lstlisting}
-
-\subsection{Uso}
-
-Esta clase ten a funci�n chamada \textit{comprueba()} que comproba se se pulsou unha determinada tecla devolvendo o caracter pulsado. Un exemplo:
-
-\begin{lstlisting}
-char caracter = teclado.comprueba();
-\end{lstlisting}
-
-
-\chapter{M�dulo WiFi ESP6288 ESP-01}
-
-\section{Introduccion}
-
-ESP8266 � un microprocesador de baixo custo con WiFi integrado fabricado por Espressif. Pod�molo usar para conectar proxectos de electr�nica e rob�tica con Arduino.
-
-Este m�dulo supuxo unha revoluci�n � hora de conectar o Arduino a WiFi, xa que antes as opci�ns dispo�ibles eran demasiado caras. Un exemplo era a placa WiFi Shield, que se a comparamos co precio de Arduino Mega mais este m�dulo WiFi, atop�monos cunha diferenza de precio curiosa.
-
-Este m�dulo, adem�is, pode comportarse como un procesador completo, con moita m�is potencia que a maior�a de placas Arduino.
-
-Existen moitos modelos de placas que integran o ESP8266; o m�dulo ESP01 � un dos primeiros en aparecer co chip ESP8266 e un dos m�dulos m�is sinxelos e baratos.
-
-O ESP01 equitaci�n a versi�n m�is sinxela do ESP8266. A�nda as�, segue sendo un procesador de 32 bits a 80 Mhz, con 512 kB ou 1 MB de memoria segundo modelo. Disp�n de 2 pines GPIO, SPI, I2C e UART.
+Existen moitos modelos de placas que integran o ESP8266; o módulo ESP01 é un dos primeiros en aparecer co chip ESP8266 e un dos módulos máis sinxelos e baratos.
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=12cm]{images/esp8266_conexion.jpg}
 	\end{center}
-	\caption{Esquema m�dulo ESP8266 }
+	\caption{Esquema módulo ESP8266}
 	\label{fig:EsquemaESP8266}
 \end{figure}
 
-En canto a comunicaci�n WiFi, o ESP01 ten comunicaci�n integrada 802.11  b/g/n, inclu�dos modos  Wi-Fi  Direct (P2P) e  soft-Ap. Incl�e unha pila de  TCP/IP completa, o que libera da maior parte do traballo de comunicaci�n � procesador.
+En canto a comunicación WiFi, o ESP01 ten comunicación integrada 802.11  b/g/n, incluidos modos  Wi-Fi  Direct (P2P) e  soft-Ap. Inclúe unha pila de  TCP/IP completa, o que libera da maior parte do traballo de comunicación ó procesador.
 
-\section{Esquema El�ctrico}
+\subsubsection{Esquema Eléctrico}
 
-A conexi�n co m�dulo ESP8266 � bastante sinxela en comparaci�n cos dem�is compo�entes �ntegros no proxecto. Ten os seguintes pines:
+A conexión co módulo ESP8266 é bastante sinxela en comparación cos demáis compoñentes íntegros no proxecto. Ten os seguintes pines:
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=10cm]{images/pines-esp01.png}
 	\end{center}
-	\caption{Pines m�dulo ESP8266}
+	\caption{Pines módulo ESP8266}
 	\label{fig:PinesESP8266}
 \end{figure}
 
 \begin{enumerate}
-\item GND � a toma de terra.
-\item GPIO2 � unha entrada/saida de prop�sito xeral. � o pin dixital n�mero 2.
-\item GPIO0 � unha entrada/saida de prop�sito xeral. � o pin dixital n�mero 0.
-\item RxD � o pin por onde se reciben os datos no porto serie. P�dese usar como pin dixital GPIO: ser�a o n�mero 3.
-\item TxD � o pin por onde se transmiten os datos no porto serie. P�dese usar como pin dixital GPIO: ser�a o n�mero 1.
-\item CH\_PD � o pin que apaga ou encende o m�dulo: se est� a 0V (LOW) ap�gase, e a 3,3V (HIGH), enc�ndese.
-\item RESET � o pin que resetea o m�dulo: se est� a 0V (LOW) reset�ase.
-\item Vcc � por onde se alimenta. Funciona a 3,3 V.
+\item GND é a toma de terra.
+\item GPIO2 é unha entrada/saida de propósito xeral. É o pin dixital número 2.
+\item GPIO0 é unha entrada/saida de propósito xeral. É o pin dixital número 0.
+\item RxD é o pin por onde se reciben os datos no porto serie. Pódese usar como pin dixital GPIO: sería o número 3.
+\item TxD é o pin por onde se transmiten os datos no porto serie. Pódese usar como pin dixital GPIO: sería o número 1.
+\item CH\_PD é o pin que o apaga ou encende: se está a 0V (LOW) apágase a 3,3V (HIGH), encéndese.
+\item RESET é o pin que o resetea: se está a 0V (LOW) resetéase.
+\item Vcc é por onde se alimenta. Funciona a 3,3 V.
 \end{enumerate}
 
-A �nica dificultade que imos ter vai ser � hora de alimentalo, xa que ten unha tensi�n de alimentaci�n de 3,3V. En ning�n caso pode alimentarse cunha tensi�n superior a 3,6 V, ou da�ar�molo.
+A única dificultade que imos ter vai ser á hora de alimentalo, xa que ten unha tensión de alimentación de 3,3V. En ningún caso pode alimentarse cunha tensión superior a 3,6 V, ou dañaríamolo.
 
-Por outro lado, o consumo non pode sobrepasar o amperaxe de 200mA. O regulador do voltaxe de Arduino de 3,3V so pode proporcionar 50mA (150mA como m�ximo), polo que a alimentaci�n � insuficiente e ter�amos que alimentar o m�dulo externamente para non sufrir cortes.
+Por outro lado, o consumo non pode sobrepasar o amperaxe de 200mA. O regulador do voltaxe de Arduino de 3,3V so pode proporcionar 50mA (150mA como máximo), polo que a alimentación é insuficiente e teríamos que alimentalo externamente para non sufrir cortes.
 
-A comunicaci�n co m�dulo faise mediante porto serie conectando os pines RxD e TxD.
+A comunicación mediante porto serie conectando os pines RxD e TxD.
 
-A conexi�n coa placa vai ser a seguinte:
+A conexión coa placa vai ser a seguinte:
 
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=10cm]{images/conexionArduinoESP8266_WiFiEsp.png}
 	\end{center}
-	\caption{Conexi�n placa Arduino Mega con m�dulo ESP8266 para librer�a WiFiEsp}
+	\caption{Conexión placa Arduino Mega con módulo ESP8266}
 	\label{fig:ConexionESP8266}
 \end{figure}
 
@@ -708,10 +669,138 @@ Rx1(19) & TxD \\
 3,3V & CH\_PD \\
 \hline
 \end{tabular}
-\caption{Conexi�n pines entre Arduino e ESP8266}
+\caption{Conexión pines entre Arduino e ESP8266}
 \label{TablaArduinoESP8266_WiFiEsp}
 \end{center}
 \end{table}
+
+\chapter{Compoñentes software}
+
+Neste capítulo vaise dividir en dúas partes: a parte de programación do Arduino Mega 2560 e a parte da creación do servidor web con servicios API REST.
+
+\section{Programa Arduino}
+
+O programa principal é o seguinte:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=8cm]{images/diagrama_flujo_inicio.png}
+	\end{center}
+	\caption{Diagrama de fluxo do programa principal Arduino}
+	\label{fig:FluxoPrincipal}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=4cm]{images/diagrama_flujo_setup.png}
+	\end{center}
+	\caption{Diagrama de fluxo de SETUP Arduino}
+	\label{fig:FluxoSETUP}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=8cm]{images/diagrama_flujo_loop.png}
+	\end{center}
+	\caption{Diagrama de fluxo de LOOP Arduino}
+	\label{fig:FluxoLOOP}
+\end{figure}
+ 
+
+\section{Django RESTful Web Framework}
+
+É unha librería que nos vai permitir construir un API REST sobre Django. Ofrece unha diversidade de métodos e funcións para a xestión dos recursos.
+
+A continuación móstrase como creala:
+
+\subsection{Crear directorio base}
+
+Vaise crear un directorio onde vai estar contido o código
+
+\begin{minted}{bash}
+  $ mkdir tfg_django
+  $ cd tfg_django
+\end{minted}
+
+\subsection{Configurar entorno virtual}
+
+Esto vainos permitir aislar as dependencias do proxecto, eliminando os conflictos de librerías locais do sistema.
+\begin{minted}{bash}
+  $ virtualenv tutorial
+  $ source tfg_django/bin/activate #esto activará o noso entorno virtual.
+\end{minted}
+
+A continuación, instalaranse os paquetes necesarios.
+
+\begin{minted}{bash}
+  $ pip install django #instalar o paquete de django
+  $ pip install djangorestframework #instalar o paquete de Django Rest Framework
+\end{minted}
+
+\subsection{Crear proxecto e configuración inicial}
+
+Vaise crear o proxecto dentro do directorio base e inicializar a configuración. A API vaise chamar \textit{almacen} e vaise crear unha aplicación que se chamará \textit{encargos}.
+
+\begin{minted}{bash}
+  $ django-admin.py startproject almacen
+  $ cd encargos
+  $ django-admin.py startapp encargos
+\end{minted}
+
+\section{Programación pantalla midas}
+
+Vaise usar a librería \textit{PantallaMidas} para manexar a parte de programación da pantalla LCD. Esta librer�a inicialízase pasandolle por parámetros ó constructor os pines que está conectado. Faise da seguinte maneira:
+
+\begin{lstlisting}] 
+PantallaMidas pantalla(DB4, DB5, DB6, DB7, E1, E2, RS);
+\end{lstlisting}
+
+
+Para inicializar a pantalla LCD, débese configurala. Neste caso vaise usar a configuración de bus de 4 bits e ten os seguintes pasos reflexados na Figura.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{images/inicializar_lcd.png}
+	\end{center}
+	\caption{Diagrama de Flujo iniciación pantalla LCD Midas}
+	\label{fig:DiagramaFlujoPantalla}
+\end{figure}
+
+Para elo, usarase o metodo \textit{configura} como se mostra a continuación:
+\begin{lstlisting}] 
+pantalla.configura();
+\end{lstlisting}
+
+\section{Programación teclado}
+
+Para usar este compoñente, elaborouse unha clase en C++ que permite a identificación da tecla pulsada.
+
+Para poder usar esta clase, hai que declarar un constructor pasandolle por referencia os pines e un String cos caracteres asociados. Un exemplo é o seguinte:
+
+\begin{lstlisting}] 
+Teclado4x4 teclado(F1, F2, F3, F4, C1, C2, C3, C4, caracteres);
+\end{lstlisting}
+
+Unha vez feito o constructor, a función \textit{configura} vai configurar o teclado para poder manexalo.
+
+\begin{minted}{cpp}
+teclado.configura();
+\end{minted}
+
+\subsection{Uso}
+
+Esta clase ten a funci�n chamada \textit{comprueba()} que comproba se se pulsou unha determinada tecla devolvendo o caracter pulsado. Un exemplo:
+
+\begin{lstlisting}
+char caracter = teclado.comprueba();
+\end{lstlisting}
+
+
+\chapter{M�dulo WiFi ESP6288 ESP-01}
+
+\section{Introduccion}
+
+
 
 \renewcommand
 \section{Programaci�n}
@@ -725,39 +814,35 @@ Para realizar o intercambio de ordes vaise usar o monitor serie incluido no IDE 
 \resizebox{16cm}{!} {
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-Comando & Descripci�n & Resposta & Configuraci�n & Par�metros \\
+Comando & Descripción & Resposta & Configuración & Parámetros \\
 \hline
 AT & Test de inicio & OK & - & - \\
 \hline
-AT+RST & Restea o m�dulo & Module info & - & -\\
+AT+RST & Restea o módulo & Module info & - & -\\
 \hline
-AT+GMR & Devolve a versi�n \newline do m�dulo & Fw Version & - & - \\
+AT+GMR & Devolve a versión \newline do módulo & Fw Version & - & - \\
 \hline
 AT+CWMODE & Configura o  \newline modo WiFi & Mode set & AT+CWMODE=(Modo) & Modo 1=Sta, 2=AP, 3=both\\
 \hline
 AT+CWLAP & Lista todos os Puntos de Acceso (AP) & list of AP & - & - \\
 \hline
-AT+CWJAP & Con�ctase a AP & OK & AT+CWJAP=(ssid),(pwd) & ssid= Nombre red de AP, pwd= contrase�a de AP\\
+AT+CWJAP & Conéctase a AP & OK & AT+CWJAP=(ssid),(pwd) & ssid= Nombre red de AP, pwd= contraseña de AP\\
 \hline
-AT+CWQAP & Finaliza a conexi�n con AP &  & AT+CWQAP & \\
+AT+CWQAP & Finaliza a conexión con AP &  & AT+CWQAP & \\
 \hline
-AT+CWSAP & Configura os \newline parametros da AP & & AT+CWSAP=(ssid),(pwd), \newline (chl),(ecn) & ssid, contrase�a, \newline canal, encriptacion \\
+AT+CWSAP & Configura os \newline parametros da AP & & AT+CWSAP=(ssid),(pwd), \newline (chl),(ecn) & ssid, contraseña, \newline canal, encriptacion \\
 \hline
-AT+CWLIF & Comproba a \newline conexi�n IP do m�dulo &  & AT+CWLIF &  \\
+AT+CWLIF & Comproba a \newline conexión IP do módulo &  & AT+CWLIF &  \\
 \hline
-AT+CIPSTATUS & Comproba a conexi�n & (id),(tipo),(direccion),(porto) & AT+CIPSTATUS & -   \\
+AT+CIPSTATUS & Comproba a conexión & (id),(tipo),(direccion),(porto) & AT+CIPSTATUS & -   \\
 \hline
 \end{tabular}
 }
-\caption{Comandos b�sicos AT}
+\caption{Comandos básicos AT}
 \label{comandosAT}
 \end{table}
 
-\subsection{Usando librer�a WiFiEsp}
-
-Esta librer�a realiza os comandos AT de maneira autom�tica para realizar a comunicaci�n coa placa.
-
-Para m�is informaci�n sobre esta librer�a visitar \textit{https://github.com/bportaluri/WiFiEsp}.
+textit{https://github.com/bportaluri/WiFiEsp}.
 
 \chapter{Conclusións}
 
