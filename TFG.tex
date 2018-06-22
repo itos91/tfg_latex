@@ -217,7 +217,7 @@
 
 \section{Estado de arte}
 
-Hoxe en día todo está conectado á rede, non solo persoas conectadas a través de un dispositivo, senón a calqueira "cousa" que teña algunha funcionalidade e que poida ser controlado desde calqueira dispositivos, xa sexa desde un smartphone, un ordenador ou desde un smartwatch. Esto é debido á implementación de IoT (Internet of Things). Pódese definir como "unha rede que conecta "things" identificables de maneira única a Internet. As "things" teñen capacidades de captura/actuación e de potencial de programación. Mediante a explotación  da identificación e captura única, pódese recoller información mais cambiar o estado do "thing" onde queiras, en calquer momento e por calquer motivo" \cite{IoT}
+Hoxe en día todo está conectado á rede, non solo persoas conectadas a través de un dispositivo, senón a calqueira "cousa" que teña algunha funcionalidade e que poida ser controlado desde calqueira dispositivos, xa sexa desde un smartphone, un ordenador ou desde un smartwatch. Esto é debido á implementación de IoT (Internet of Things). Pódese definir como \textit{"unha rede que conecta "cousas" identificables de maneira única a Internet. As "cousas" teñen capacidades de captura/actuación e de potencial de programación. Mediante a explotación  da identificación e captura única, pódese recoller información mais cambiar o estado da "cousa" onde queiras, en calquer momento e por calquer motivo"} \cite{IoT}
 
 \begin{figure}[H]
 	\begin{center}
@@ -250,7 +250,7 @@ Por outro lado, tamén conta cunha interfaz web para o almacén, podendo gestion
 	\label{fig:IoT}
 \end{figure}
 
-Para elo, vaise dividir o documento Memoria en requerimentos hardware, onde se vai detallar os compoñentes hardware usados, e requerimentos software, onde se explicará a parte de programación da parte de \txtbf{Arduino} e a parte de \textbf{Django RESTful Service}.
+Para elo, vaise dividir o documento \textbf{Memoria} en requerimentos hardware, onde se vai detallar os compoñentes hardware usados, e requerimentos software, onde se explicará a parte de programación da parte de \txtbf{Arduino} e a parte de \textbf{Django RESTful Service}.
 
 \chapter{Conceptos previos}
 
@@ -355,7 +355,7 @@ Neste proxecto vaise usar Arduino Mega 2560.
 
 O entorno de desenvolvemento integrado (Integrated Development Environment ou IDE) é un programa informático composto por un conxunto de ferramentas de programación. 
 
-Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom con un plugin chamado PlataformIO, que nos vai permitir poder compilar, subir e debbugear código na placa.
+Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom con un plugin chamado \textit{PlatformIO}, que nos vai permitir poder compilar, subir e debbugear código na placa.
 
 \begin{figure}[H]
 	\begin{center}
@@ -369,7 +369,7 @@ Para a creación dun novo proxecto, faise click en New Project, poñéndolle un 
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=15cm]{images/NewProject.png}
+		\includegraphics[width=8cm]{images/NewProject.png}
 	\end{center}
 	\caption{Novo Proxecto}
 	\label{fig:NewProject}
@@ -377,22 +377,22 @@ Para a creación dun novo proxecto, faise click en New Project, poñéndolle un 
 
 \subsection{Sketches}
 
-Os programas de Arduino, tamén chamados Sketch, están compostos por un solo ficheiro con extensión ".ino", pero neste caso, o arquivo vai ter extensión ".cpp" como no lenguaxe de programación C++.
+Os programas de Arduino, tamén chamados Sketch, están compostos por un solo ficheiro con extensión \"{.ino"}, pero neste caso, o arquivo vai ter extensión \"{.cpp} como no lenguaxe de programación C++.
 
 \subsection{Librerías}
 
-As librerías son partes de código feitas por terceiras persoas que usamos na nosa programación. Esto facilita á hora de programar e permite a abstracción facendo que o noso programa sexa moito máis fácil de elaborar e entender.
+Na nosa aplicación, podemos incorporar  librerías codificadas por outros programadores. Esto facilita á hora de programar e permite a abstracción facendo que o noso programa sexa moito máis fácil de elaborar e entender.
 
 Disponse de infinidade de librerías para facilitar traballo, sendo todas elas Open Source.
 
 Normalmente veñen comprimidas nun archivo ZIP e conteñen:
 \begin{itemize}
 \item Un archivo .cpp (código C++)
-\item Un encabezado de C con extensión .h, que conten as propiedades e métodos ou funcións da librería.
-\item Un directorio con exemplos con varios sketches de exemplo para axudarnos a entendela.
+\item Un arquivo de declaracións con extensión .h que contén a declaración dunha ou varias clases.
+\item Un directorio con varios exemplos para axudarnos a entendela.
 \end{itemize}
 
-Para incluir as librerías no noso proxecto, na carpeta chamada "lib" importaranse, creando un packete para cada unha.
+Para incluir librerías no noso proxecto, na carpeta chamada "lib" importaranse, creando un packete para cada unha.
 
 \begin{figure}[H]
 	\begin{center}
@@ -443,7 +443,7 @@ Os principais métodos son:
 \chapter{Compoñentes Hardware}
 \section{Arduino Mega 2560}
 
-O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o microcontrolador; simplemente conéctase a unha computadora con un cable USB ou encéndese cun adaptador AC-to-DC ou batería para comezar. 
+O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o desenvolvimento de aplicacións para este microcontrolador; simplemente conéctase a unha computadora con un cable USB ou aliméntase cun adaptador AC-to-DC ou batería para comezar. 
 
 \begin{figure}[H]
 	\begin{center}
@@ -455,14 +455,14 @@ O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de 
 
 \subsection{Alimentación eléctrica}
 
-O Mega 2560 pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía está seleccionada automaticamente. 
+Pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía está seleccionada automaticamente. 
 
 A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con menos de 7V, con todo, o pin de 5V pode fornecer menos de 5V e pode volverse inestable. Se usa máis de 12V, o regulador de voltaxe pode sobrecalentarse e dañala. O rango recomendado é de 7 a 12V.
 
 Os pines de alimentación son os seguintes:
 
 \begin{itemize}
-\item \textbf{Vin.} A tensión de entrada ao taboleiro cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensión a través deste pin ou, se fornecer a tensión a través do conector de enerxía, accédese a través deste pin.
+\item \textbf{Vin.} A tensión de entrada á placa cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensión a través deste pin ou, se fornecer a tensión a través do conector de enerxía, accédese a través deste pin.
 \item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerxía desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
 \item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
 \item \textbf{GND.} Pins de terra.
@@ -473,7 +473,7 @@ Os pines de alimentación son os seguintes:
 
 \subsection{Pantalla LCD}
 
-Para visualizar os datos aportados polo autómata programable empregarase unha pantalla LCD da marca Midas que ten unha resolución de 4 liñas x 40 caracteres. 
+Para visualizar os pedidos dos operarios e xestionalos, empregarase unha pantalla LCD da marca Midas que ten unha resolución de 4 liñas x 40 caracteres. 
 
 \begin{figure}[H]
 	\begin{center}
@@ -483,8 +483,6 @@ Para visualizar os datos aportados polo autómata programable empregarase unha p
 	\label{fig:PantallaLCD}
 \end{figure}
 
-\subsubsection{Esquema Eléctrico}
-
 A conexión da pantalla coa placa Arduino Mega vai ser da seguinte maneira:
 
 \begin{figure}[H]
@@ -492,7 +490,7 @@ A conexión da pantalla coa placa Arduino Mega vai ser da seguinte maneira:
 		\includegraphics[width=15cm]{images/conexionArduinoLCD.png}
 	\end{center}
 	\caption{Conexión placa Arduino Mega con pantalla LCD Midas}
-	\label{fig:ConexionESP8266}
+	\label{fig:ConexionPantalla}
 \end{figure}
 
 \begin{table}[h]
@@ -525,7 +523,7 @@ GND & Vss & Negro \\
 \end{center}
 \end{table}
 
-Para o control de alimentación, e, polo tanto, para o controlo de brillo da pantalla, vaise añadir un potenciómetro de 10k que ten o esquema reflexado na figura {TablaArduinoPantalla} e os seguintes pines:
+Para o control de alimentación, e, polo tanto, para o control de brillo da pantalla, vaise añadir un potenciómetro de 10k que ten o esquema reflexado na figura \ref{fig:ConexionPantalla} e os seguintes pines:
 
 \begin{table}[htbt]
 \begin{center}
@@ -549,19 +547,17 @@ Para poder indicarlle ó terminal que se completou unha caixa, vaise usar un tec
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=12cm]{images/teclado_storm.jpg}
+		\includegraphics[width=8cm]{images/teclado_storm.jpg}
 	\end{center}
 	\caption{STORM 720TFX SERIES *http://www.storm-interface.com/storm-720tfx-series-16-button.html}
 	\label{fig:TecladoStorm}
 \end{figure}
 
-\subsubsection{Esquema Eléctrico}
-
-Para o uso de este compoñente, vaise conectar da seguinte maneira:
+A conexión con Arduino vai ser da seguinte maneira:
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.8]{images/conexionArduinoKeypad.png}
+		\includegraphics[scale=0.75]{images/conexionArduinoKeypad.png}
 	\end{center}
 	\caption{Conexión placa Arduino Mega con teclado 4x4 Matrix}
 	\label{fig:ConexionESP8266}
@@ -680,11 +676,11 @@ Neste capítulo vaise dividir en dúas partes: a parte de programación do Ardui
 
 \section{Programa Arduino}
 
-O programa principal é o seguinte:
+\subsection{Diagrama de fluxo}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=8cm]{images/diagrama_flujo_inicio.png}
+		\includegraphics[width=5cm]{images/diagrama_flujo_inicio.png}
 	\end{center}
 	\caption{Diagrama de fluxo do programa principal Arduino}
 	\label{fig:FluxoPrincipal}
@@ -692,7 +688,7 @@ O programa principal é o seguinte:
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=4cm]{images/diagrama_flujo_setup.png}
+		\includegraphics[width=6cm]{images/diagrama_flujo_setup.png}
 	\end{center}
 	\caption{Diagrama de fluxo de SETUP Arduino}
 	\label{fig:FluxoSETUP}
@@ -706,10 +702,98 @@ O programa principal é o seguinte:
 	\label{fig:FluxoLOOP}
 \end{figure}
  
+ \subsection{Pantalla LCD}
+
+Vaise usar a librería \textit{PantallaMidas} para manexar a parte de programación da pantalla LCD. Esta librería inicialízase pasandolle por parámetros ó constructor os pines que está conectado. Faise da seguinte maneira:
+
+\begin{minted}{cpp}
+PantallaMidas pantalla(DB4, DB5, DB6, DB7, E1, E2, RS);
+\end{minted}
+
+Para inicializar a pantalla LCD, débese configurala. Neste caso vaise usar a configuración de bus de 4 bits e ten os seguintes pasos reflexados na Figura.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[scale=0.6]{images/inicializar_lcd.png}
+	\end{center}
+	\caption{Diagrama de Flujo iniciación pantalla LCD Midas}
+	\label{fig:DiagramaFlujoPantalla}
+\end{figure}
+
+Para elo, usarase o metodo \textit{configura} como se mostra a continuación:
+\begin{minted}{cpp}
+pantalla.configura();
+\end{minted}
+
+\subsection{Teclado Matricial}
+
+Para usar este compoñente, elaborouse unha clase en C++ que permite a identificación da tecla pulsada.
+
+Para poder usar esta clase, hai que declarar un constructor pasandolle por referencia os pines e un String cos caracteres asociados. Un exemplo é o seguinte:
+
+\begin{minted}{cpp}
+Teclado4x4 teclado(F1, F2, F3, F4, C1, C2, C3, C4, caracteres);
+\end{minted}
+
+Unha vez feito o constructor, a función \textit{configura} vai configurar o teclado para poder manexalo.
+
+\begin{minted}{cpp}
+teclado.configura();
+\end{minted}
+
+Esta clase ten a función chamada \textit{comprueba()} que comproba se se pulsou unha determinada tecla devolvendo o caracter pulsado. Un exemplo:
+
+\begin{minted}{cpp}
+char caracter = teclado.comprueba();
+\end{minted}
+
+
+\subsection{ESP6288 ESP-01}
+
+Os comandos básicos para a comunicación entre o módulo e a placa Arduino chámanse AT. O básicos reflexanse na seguinte táboa:
+
+\begin{table}[!h]
+\centering
+\resizebox{16cm}{!} {
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+Comando & Descripción & Resposta & Configuración & Parámetros \\
+\hline
+AT & Test de inicio & OK & - & - \\
+\hline
+AT+RST & Restea o módulo & Module info & - & -\\
+\hline
+AT+GMR & Devolve a versión \newline do módulo & Fw Version & - & - \\
+\hline
+AT+CWMODE & Configura o  \newline modo WiFi & Mode set & AT+CWMODE=(Modo) & Modo 1=Sta, 2=AP, 3=both\\
+\hline
+AT+CWLAP & Lista todos os Puntos de Acceso (AP) & list of AP & - & - \\
+\hline
+AT+CWJAP & Conéctase a AP & OK & AT+CWJAP=(ssid),(pwd) & ssid= Nombre red de AP, pwd= contraseña de AP\\
+\hline
+AT+CWQAP & Finaliza a conexión con AP &  & AT+CWQAP & \\
+\hline
+AT+CWSAP & Configura os \newline parametros da AP & & AT+CWSAP=(ssid),(pwd), \newline (chl),(ecn) & ssid, contraseña, \newline canal, encriptacion \\
+\hline
+AT+CWLIF & Comproba a \newline conexión IP do módulo &  & AT+CWLIF &  \\
+\hline
+AT+CIPSTATUS & Comproba a conexión & (id),(tipo),(direccion),(porto) & AT+CIPSTATUS & -   \\
+\hline
+\end{tabular}
+}
+\caption{Comandos básicos AT}
+\label{comandosAT}
+\end{table}
+
+Usaremos unha librería Open Source \textit{WiFiEsp} que nos facilitará a programación con comandos AT, xa que están implementados mediante funcións.
+
+Pódese atopar manuais e exemplos no repositorio: textit{https://github.com/bportaluri/WiFiEsp}.
 
 \section{Django RESTful Web Framework}
 
 É unha librería que nos vai permitir construir un API REST sobre Django. Ofrece unha diversidade de métodos e funcións para a xestión dos recursos.
+
+Esta librería é totalmente portable; podese usar tanto con Windows, Linux ou Mac OSX. Neste proxecto vaise usar o sistema operativo MacOs Hight Sierra.
 
 A continuación móstrase como creala:
 
@@ -747,102 +831,11 @@ Vaise crear o proxecto dentro do directorio base e inicializar a configuración.
   $ django-admin.py startapp encargos
 \end{minted}
 
-\section{Programación pantalla midas}
 
-Vaise usar a librería \textit{PantallaMidas} para manexar a parte de programación da pantalla LCD. Esta librer�a inicialízase pasandolle por parámetros ó constructor os pines que está conectado. Faise da seguinte maneira:
-
-\begin{lstlisting}] 
-PantallaMidas pantalla(DB4, DB5, DB6, DB7, E1, E2, RS);
-\end{lstlisting}
-
-
-Para inicializar a pantalla LCD, débese configurala. Neste caso vaise usar a configuración de bus de 4 bits e ten os seguintes pasos reflexados na Figura.
-
-\begin{figure}[H]
-	\begin{center}
-		\includegraphics[scale=0.6]{images/inicializar_lcd.png}
-	\end{center}
-	\caption{Diagrama de Flujo iniciación pantalla LCD Midas}
-	\label{fig:DiagramaFlujoPantalla}
-\end{figure}
-
-Para elo, usarase o metodo \textit{configura} como se mostra a continuación:
-\begin{lstlisting}] 
-pantalla.configura();
-\end{lstlisting}
-
-\section{Programación teclado}
-
-Para usar este compoñente, elaborouse unha clase en C++ que permite a identificación da tecla pulsada.
-
-Para poder usar esta clase, hai que declarar un constructor pasandolle por referencia os pines e un String cos caracteres asociados. Un exemplo é o seguinte:
-
-\begin{lstlisting}] 
-Teclado4x4 teclado(F1, F2, F3, F4, C1, C2, C3, C4, caracteres);
-\end{lstlisting}
-
-Unha vez feito o constructor, a función \textit{configura} vai configurar o teclado para poder manexalo.
-
-\begin{minted}{cpp}
-teclado.configura();
-\end{minted}
-
-\subsection{Uso}
-
-Esta clase ten a funci�n chamada \textit{comprueba()} que comproba se se pulsou unha determinada tecla devolvendo o caracter pulsado. Un exemplo:
-
-\begin{lstlisting}
-char caracter = teclado.comprueba();
-\end{lstlisting}
-
-
-\chapter{M�dulo WiFi ESP6288 ESP-01}
-
-\section{Introduccion}
+\chapter{Resultados}
 
 
 
-\renewcommand
-\section{Programaci�n}
-
-\subsection{Comandos AT}
-
-Para realizar o intercambio de ordes vaise usar o monitor serie incluido no IDE de Arduino. Estes son os comandos b�sicos AT:
-
-\begin{table}[!h]
-\centering
-\resizebox{16cm}{!} {
-\begin{tabular}{|c|c|c|c|c|}
-\hline
-Comando & Descripción & Resposta & Configuración & Parámetros \\
-\hline
-AT & Test de inicio & OK & - & - \\
-\hline
-AT+RST & Restea o módulo & Module info & - & -\\
-\hline
-AT+GMR & Devolve a versión \newline do módulo & Fw Version & - & - \\
-\hline
-AT+CWMODE & Configura o  \newline modo WiFi & Mode set & AT+CWMODE=(Modo) & Modo 1=Sta, 2=AP, 3=both\\
-\hline
-AT+CWLAP & Lista todos os Puntos de Acceso (AP) & list of AP & - & - \\
-\hline
-AT+CWJAP & Conéctase a AP & OK & AT+CWJAP=(ssid),(pwd) & ssid= Nombre red de AP, pwd= contraseña de AP\\
-\hline
-AT+CWQAP & Finaliza a conexión con AP &  & AT+CWQAP & \\
-\hline
-AT+CWSAP & Configura os \newline parametros da AP & & AT+CWSAP=(ssid),(pwd), \newline (chl),(ecn) & ssid, contraseña, \newline canal, encriptacion \\
-\hline
-AT+CWLIF & Comproba a \newline conexión IP do módulo &  & AT+CWLIF &  \\
-\hline
-AT+CIPSTATUS & Comproba a conexión & (id),(tipo),(direccion),(porto) & AT+CIPSTATUS & -   \\
-\hline
-\end{tabular}
-}
-\caption{Comandos básicos AT}
-\label{comandosAT}
-\end{table}
-
-textit{https://github.com/bportaluri/WiFiEsp}.
 
 \chapter{Conclusións}
 
@@ -858,18 +851,6 @@ As melloras que se poden aplicar poden ser as seguintes:
 
 \bibitem{IoT} \textsc{Brian Russell, Drew Van Duren}; \textit{Practical Internet of Things Security}, PACKT Publishing (Xuño 2016).
 \bibitem{Django} \textsc{Gastón C. Hillar}, \emph{Building RESTful Python Web}, PACKT Publishing (Outubro 2016).
-
-\bibitem{REVISTA} \textsc{Apellidos, Inicial del nombre}; \emph{T�tulo del art�culo}, Revista, (A�o de publicaci�n), Volumen, P�ginas.
-
-\bibitem{} \textsc{Lamas Galdo, M.I., et al.} \emph{Modelo de mec�nica de fluidos computacional para el proceso de barrido en un motor Otto de dos tiempos}. 
-(2011), 86(2), p�gs. 165-172.
-
-\bibitem{MODICOM} \textit{Modicom Premium}, Schneider Electrics.
-             Dispo�ible en: \url{https://www.schneider-electric.com.co/documents/local/ModiconPremium.pdf}
-\bibitem{UNITY} \textit{Unity Pro }, Schneider Electrics, 04/2009.
-             Dispo�ible en: \url{https://www.schneider-electric.com/resources/sites/SCHNEIDER_ELECTRIC/content/live/FAQS/31000/FA31761/es_ES/Unity%20v41%20-%20Manual%20de%20referencia.pdf}
-\bibitem{} \emph{Wikipedia: the free encyclopedia}. Wiki en Internet. Wikimedia Foundation, Inc. 2001. [Consulta 5 mayo 2007]. 
-           Disponible en: \url{http://en.wikipedia.org/}
 					
 \end{thebibliography}
 
@@ -893,7 +874,7 @@ As melloras que se poden aplicar poden ser as seguintes:
 \ \\
 \begin{large}
 \begin{center}
-\color{blue}\textbf{Escola de Enxe�er�a Industrial}
+\color{blue}\textbf{Escola de Enxeñería Industrial}
 \end{center}
 \end{large}
 \ \\
@@ -963,1196 +944,14 @@ As melloras que se poden aplicar poden ser as seguintes:
 
 \cleardoublepage
 \chapter{Códigos de programción do Arduino}
-% Introducir contenidos de DOCUMENTACI�N DE PARTIDA
-\section{Librerías}
 
-\subsection{Consola}
-%Cabecera
-\begin{lstlisting}
-%Codigo
-#ifndef CONSOLA_H_
-#define CONSOLA_H_
-
-#include "PantallaMidas.h"
-#include "Teclado4x4.h"
-
-class Consola {
-  // Un objeto de esta clase representa a una consola compuesta por un teclado y una pantalla
-  
-  private:
-      PantallaMidas pantalla;
-      Teclado4x4 teclado;
-      // Cada objeto Consola contiene objetos para manejar el teclado y la pantalla
-      
-      char _cadena[41];
-      
-  public: 
-  
-      Consola(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS, int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char * caracteres);
-      // Constructor al que le proporcionamos los datos necesarios para inicializar la pantalla y el teclado
-      
-      void configura();  // Utilizado en el setup() para configurar estos dispositivos
-      
-      void visualizaEntero(int fila, int columna, unsigned int valor);
-      void visualizaReal(int fila, int columna, float valor, int nCaracteres, int nDecimales);
-      void visualizaCadena(int fila, int columna, char * cadena);  
-      void visualizaCadena(int fila, int columna, String cadena);
-      // Para visualizar informaci�n en pantalla
-      
-      char introduceCaracter();
-      int introduceEntero(int fila, int columna, int nCaracteres);
-      float introduceReal(int fila, int columna, int nCaracteres);
-      void introduceCadena(int fila, int columna, char * validos, int nCaracteres, char * resultado);
-      // Para introducir informaci�n por teclado
-      
-      void borraPantalla();
-      // Para borrar la pantalla
-};
-
-#endif
-
-\end{lstlisting}
-\begin{lstlisting}
-#include "Consola.h"
-#include <string.h>
-
-
-Consola::Consola(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS, int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char * caracteres):
-    pantalla(DB4, DB5, DB6, DB7, E1, E2, RS),
-    teclado(F1, F2, F3, F4, C1, C2, C3, C4, caracteres) {
-}
-
-void Consola::configura() {
-  pantalla.configura();
-  teclado.configura();
-}
-
-void Consola::visualizaEntero(int fila, int columna, unsigned int valor) {
-  pantalla.posiciona(fila, columna);
-  unsigned long aux = valor;
-  //itoa(valor, _cadena, 10);
-  sprintf(_cadena,"%ld",aux);
-  pantalla.escribeCadena(_cadena);
-}
-
-void Consola::visualizaReal(int fila, int columna, float valor, int nCaracteres, int nDecimales) {
-  pantalla.posiciona(fila, columna);
-  dtostrf(valor, nCaracteres, nDecimales, _cadena);
-  pantalla.escribeCadena(_cadena);
-}
-
-void Consola::visualizaCadena(int fila, int columna, char * cadena) {
-  pantalla.posiciona(fila, columna);
-  pantalla.escribeCadena(cadena);
-}
-
-void Consola::visualizaCadena(int fila, int columna, String cadena) {
-  pantalla.posiciona(fila, columna);
-  pantalla.escribeCadena(cadena);
-}
-
-char Consola::introduceCaracter() {
-  char caracter;
-  do {
-    caracter = teclado.comprueba();
-  } while (caracter == 0);
-  return caracter;
-}
-
-void Consola::introduceCadena(int fila, int columna, char * validos, int nCaracteres, char * resultado) {
-  int i;
-  char caracter;
-  pantalla.posiciona(fila, columna);
-  for (i = 0; i < nCaracteres; i++)
-      pantalla.escribeCaracter(' ');
-  pantalla.posiciona(fila, columna);
-  pantalla.muestraCursor(true);
-  i = 0;
-  do {
-      caracter = introduceCaracter();
-      if (strchr(validos, caracter) != NULL && i < nCaracteres) {
-          resultado[i] = caracter;
-          i++;
-          pantalla.escribeCaracter(caracter);
-      }
-      if (caracter == 'i') {
-          i--;
-          pantalla.posiciona(fila, columna+i);
-          pantalla.escribeCaracter(' ');
-          pantalla.posiciona(fila, columna+i);
-      }
-  } while (caracter != 'e');
-  pantalla.muestraCursor(false);
-  resultado[i] = 0;
-}
-
-int Consola::introduceEntero(int fila, int columna, int nCaracteres) {
-  introduceCadena(fila, columna, "0123456789", nCaracteres, _cadena);
-  return atoi(_cadena);
-}
-
-float Consola::introduceReal(int fila, int columna, int nCaracteres) {
-  introduceCadena(fila, columna, "0123456789.-", nCaracteres, _cadena);
-  return atof(_cadena);
-}
-
-
-void Consola::borraPantalla() {
-  pantalla.borra();
-}
-
-\end{lstlisting}
-
-
-
-\subsection{Menu}
-%Cabecera
-\begin{lstlisting}
-#ifndef Menu_h
-#define Menu_h
-
-#include "Arduino.h"
-#include "Consola.h"
-#include <string.h>
-
-
-class Menu
-{
-
-private:
-	// Construye un objeto para manejar una pantalla utilizando las se�ales Arduino 32 a 38
-	// y para manejar el teclado usando las se�ales del 22 a 29 y la cadena que representa el teclado.
-	String *_menuList;
-	char *_titulo;
-	bool _parent;
-	int _numItem;
-	int sel;
-	bool menuActivo;
-
-public:
-
-	    Menu(char titulo[], String menuList[], int numItem, bool parent);
-	    // Constructor al que se le indica:
-	    // - menuList = Lista de Strings que contienen los items del menu
-	    // - titulo = titulo del menu.
-			// - numItem = numero de items del menu.
-	    // - parent = si es el menu principal o no
-
-	    void visualiza(Consola consolaMenu);
-
-	    bool compruebaTecla(Consola consolaMenu);
-
-	    int getSel();
-
-	    void activarMenu();
-
-	    void desactivarMenu();
-
-	    bool getActivo();
-
-
-};
-
-
-#endif
-
-\end{lstlisting}
-%codigo
-\begin{lstlisting}
-#include "Menu.h"
-
-
-Menu::Menu(char titulo[], String menuList[], int numItem, bool parent)
- {
-  // Constructor para inicializar un objeto de la clase Menu. Par�metros:
-  // -menuList: Array que contiene la lista del menu
-
-  //Serial.println(titulo);
-  sel = 0;              // guarda la posici�n del menu
-  menuActivo = false;   // si est� el menu en pantalla o no
-
-  //_menuList = menuList;
-  //memcpy(_menuList,menuList,numItem);
-
-  _menuList = menuList;
-  _titulo = titulo;
-  _parent = parent;
-  _numItem = numItem;
-  //Serial.println(_numItem);
-  // Guarda en el objeto estos par�metros
-}
-
-void Menu::visualiza(Consola consolaMenu) {
-  consolaMenu.borraPantalla();
-  consolaMenu.visualizaCadena(1,1,_titulo);
-
-  consolaMenu.visualizaCadena(sel + 2,1,"x");
-  for (int i = 0; i < _numItem; i++)
-    consolaMenu.visualizaCadena(i+2,2,_menuList[i]);
-}
-
-bool Menu::compruebaTecla(Consola consolaMenu) {
-  char caracter;
-
-  if(caracter = consolaMenu.introduceCaracter()) {
-    switch(caracter) {
-      case 'e':
-      case 'd':
-        return true;
-        break;
-      case 's':
-        if(sel > 0)
-          sel--;
-        return false;
-        break;
-      case '-':
-        if (sel < _numItem - 1) {
-          sel++;
-        }
-        return false;
-        break;
-      case 'i':
-        if (!_parent) {
-          sel = -1;
-          return true;
-        }
-        break;
-
-      default:
-        return false;
-        break;
-    }
-  }
-}
-
-void Menu::desactivarMenu() {
-  menuActivo = false;
-}
-
-void Menu::activarMenu() {
-  menuActivo = true;
-  sel = 0;
-}
-
-int Menu::getSel() {
-    return sel;
-}
-
-bool Menu::getActivo() {
-  return menuActivo;
-}
-
-\end{lstlisting}
-
-
-\subsection{ModbusTCP}
-%Cabecera
-\begin{lstlisting}
-#ifndef ModbusTCP_h
-#define ModbusTCP_h
-
-#include <Arduino.h>
-#include <Ethernet.h>
-#include <WiFiEsp.h>
-// Para utilizar clases de comunicaci�n serie
-
-
-class ModbusTCPClass
-{
-
-private:
-	    WiFiEspClient _client;
-	    char *_ssid;
-	    char *_pass;
-	    // Referencia al objeto que maneja la comunicaci�n en el canal serie
-
-	    byte _respuesta[12];
-	    // Matriz de bytes donde se guardan los paquetes que se reciben al realizar la escritura
-
-	    int _port;
-	    // puerto del servidor
-	    IPAddress _adress;
-	    //IPAddress del servidor
-
-	    int status = WL_IDLE_STATUS;
-
-public:
-
-	    ModbusTCPClass(char ssid[], char password[], int port, byte adress[]);
-	    // Constructor al que se le indica:
-	    // - canal = el canal serie utilizado en la placa Arduino
-	    // - baudios = velocidad de comunicaci�n en bits/s, por defecto 9600
-	    // - configuracion = configuraci�n de la comunicaci�n, por defecto con 8 bits/byte,
-	    //   sin paridad y con 1 bit de parada
-
-	    char * configura();
-	    // Hay que llamar a este m�todo en la funci�n setup() para conectarse a la red
-	    // Devuelve un String si se ha conectado a la WiFi
-
-	    char * connectServer();
-	    // Hay que llamar a este m�todo en la funci�n setup() para conectarse al servidor
-	    // Devuelve un String si se ha conectado al servidor con �xito
-
-	    void escribeVariosRegistros(unsigned int primero, unsigned int cuantos, unsigned int registro[]);
-	    // Env�a una orden al esclavo indicado por 'nodo' para modificar el registro interno indicado
-	    // por 'registro' y guardar en �l el dato indicado por 'valor' (un entero de 16 bits
-	    // sin signo)
-
-	    void leeVariosRegistros(unsigned int primero, unsigned int cuantos, unsigned int registro[]);
-	    // Env�a una orden al esclavo indicado por 'nodo' para leer su registro n�mero 'registro'.
-	    // Devuelve el valor le�do (un entero sin signo de 16 bits).
-
-	    float leeReal(int direccion);
-
-	    void escribeReal(int direccion, float valor);
-
-	    void escribeBool(int direccion, unsigned int valor);
-
-	    bool leeBool(int direccion);
-};
-
-
-#endif
-
-\end{lstlisting}
-%codigo
-\begin{lstlisting}
-#include "ModbusTCP.h"
-
-
-ModbusTCPClass::ModbusTCPClass(char ssid[], char password[], int port, byte adress[]) {
-  // Constructor para inicializar un objeto de la clase Modbus. Par�metros:
-  // ssid: Nombre de la red a conectarse
-  // password: contrase�a de la red a conectarse
-  // port: puerto del servidor a conectarse
-  // adress: array de 4 bytes que maneja la direccion ip del servidor a conectarse
-
-  _ssid = ssid;
-  _pass = password;
-  _port = port;
-  _adress = IPAddress(adress);
-  // Guarda en el objeto estos par�metros
-}
-
-
-char * ModbusTCPClass::configura() {
-  // En el setup() del sketch hay que llamar a este m�todo para conectarse a la red
-  // initialize serial for debugging
-  Serial.begin(115200);
-  // initialize serial for ESP module
-  Serial1.begin(115200);
-  // initialize ESP module
-
-    WiFi.init(&Serial1);
-
-    if (WiFi.status() == WL_NO_SHIELD) {
-      Serial.println("WiFi shield not present");
-      // don't continue
-      while (true);
-    }
-
-    while (status != WL_CONNECTED){
-      Serial.print("Conectandose a la red: ");
-      Serial.println(_ssid);
-      status = WiFi.begin(_ssid,_pass);
-    }
-
-    Serial.println("Est�s conectado a la red");
-
-    return "Conectado a la red";
-}
-
-char * ModbusTCPClass::connectServer() {
-    //En el setup() del sketch hay que llamar a este m�todo para conectarse al servidor
-    while (!_client.connect(_adress, _port)) {
-      Serial.println("No se puede conectar al servidor");
-    }
-    Serial.println("Conectado al servidor");
-
-    return "Conectado al servidor";
-
-}
-
-
-
-void ModbusTCPClass::escribeVariosRegistros(unsigned int primero, unsigned int cuantos, unsigned int registro[]) {
-  // Env�a al nodo n�mero 'nodo' una orden para que modifique su registro interno 'registro'
-  // guardando ah� el dato indicado en 'valor'
-  byte _paqueteEscritura[13 + cuantos * 2];
-
-  _paqueteEscritura[0] = 0;
-  _paqueteEscritura[1] = 0;  // Transaci�n ID
-
-  _paqueteEscritura[2] = 0;  // Estos bytes tienen que estar a 0
-  _paqueteEscritura[3] = 0;
-  _paqueteEscritura[4] = 0;
-
-  _paqueteEscritura[5] = (byte)(cuantos * 2 + 7);  //Un byte que indica el numero de bytes a enviar
-
-  _paqueteEscritura[6] = 1;  // Direcci�n Modbus
-
-  _paqueteEscritura[7] = 0x10; //Codigo de operaci�n de escritura
-
-  _paqueteEscritura[8] = (byte)(primero >> 8);  // Luego los 8 bits m�s significativos del dato
-  _paqueteEscritura[9] = (byte)(primero & 0xFF);  // y a continuaci�n los 8 menos significativos
-
-  _paqueteEscritura[10] = (byte)(cuantos >> 8);  // Luego los 8 bits m�s significativos del dato
-  _paqueteEscritura[11] = (byte)(cuantos & 0xFF);  //y a continuaci�n los 8 menos significativos
-
-  _paqueteEscritura[12] = (byte)(cuantos * 2); //Numero de bytes a enviar
-
-  for(int i = 0; i < cuantos; i++)
-  {
-    _paqueteEscritura[13 + i * 2] = (byte)(registro[i] >> 8);
-    _paqueteEscritura[13 + i * 2 + 1] = (byte)(registro[i] & 0xFF);
-  }
-
-  _client.write(_paqueteEscritura, 13 + cuantos * 2);  // Env�a el paquete
-  _client.flush();  // Espera a que se vac�e el buffer de salida en el canal
-
-  byte _resp_e[12];
-  //for (int i = 0; i < 12; i ++) {
-    //_resp_e[i] = _client.read();
-    //_client.flush();
-    // Extrae del objeto de comunicaciones los 12 bytes recibidos
-  //}
-
-  Serial.print("Respuesta escribir: ");
-  int _num_resp = -1;
-    while(_num_resp == -1)
-      _num_resp=_client.read(_resp_e,12);
-
-  for (int i = 0; i < 12; i ++)
-      Serial.println((unsigned int)_resp_e[i]);
-
-
-}
-
-void ModbusTCPClass::leeVariosRegistros(unsigned int primero, unsigned int cuantos, unsigned int registro[]) {
-  // Env�a al nodo n�mero 'nodo' una orden para que devuelva el valor almacenado en
-  // su registro interno 'registro'. Este m�todo devuelve el valor recibido.
-    byte _paqueteLectura[12];
-
-    _paqueteLectura[0] = 0;
-    _paqueteLectura[1] = 0;  // Transacion ID
-
-    _paqueteLectura[2] = 0;  //Tienen que estar a 0
-    _paqueteLectura[3] = 0;
-    _paqueteLectura[4] = 0;
-
-    _paqueteLectura[5] = 6;  // Numero de bytes que siguen
-
-    _paqueteLectura[6] = 1;  //Direcci�n del esclavo Modbus
-
-    _paqueteLectura[7] = 0x03; //Codigo de operaci�n
-
-    _paqueteLectura[8] = (byte) (primero >> 8);
-    _paqueteLectura[9] = (byte) (primero & 0xFF); //Direcci�n del primer registro a leer
-
-    _paqueteLectura[10] = (byte) (cuantos >> 8);
-    _paqueteLectura[11] = (byte) (cuantos & 0xFF); //N�mero de registros a leer
-
-    _client.write(_paqueteLectura,12);
-    _client.flush();
-
-    byte _resp_l[9 + cuantos * 2];
-
-    //delay(20);
-    //Serial.print("Respuesta leer: ");
-
-    int resp = -1;
-    while(resp == -1)
-      resp=_client.read(_resp_l,(9 + cuantos * 2));
-
-    //for (int i = 0; i < (9 + (cuantos * 2)); i++){
-      //_resp_l[i] = _client.read();
-      //Serial.println((unsigned int)_resp_l[i]);
-    //}
-
-    if ((_resp_l[7] && 0x80) == 0x80) {
-      Serial.println("Hay un error");
-    }
-
-    for (int i = 0; i < cuantos; i++) {
-      registro[i] = (unsigned int)((_resp_l[9 + (i * 2)] * 256) + (_resp_l[ 9 + (i * 2) + 1]));
-    }
-
-}
-
-float ModbusTCPClass::leeReal(int direccion) {
-  unsigned int m[2];
-  float resultado;
-  unsigned int *p;
-
-  leeVariosRegistros(direccion,2,m);
-
-  p = (unsigned int *) &resultado;
-
-  p[0] = m[0];
-  p[1] = m[1];
-
-  return resultado;
-}
-
-void ModbusTCPClass::escribeReal(int direccion, float valor) {
-  unsigned int *p;
-
-  p = (unsigned int *) &valor;
-
-  escribeVariosRegistros(direccion, 2, p);
-
-}
-
-void ModbusTCPClass::escribeBool(int direccion, unsigned int valor) {
-  unsigned int *p;
-
-  p = (unsigned int *) &valor;
-
-  escribeVariosRegistros(direccion,1,p);
-}
-
-bool ModbusTCPClass::leeBool(int direccion) {
-  unsigned int m[1];
-
-  leeVariosRegistros(direccion,1,m);
-
-  if (m[0])
-    return true;
-  else
-    return false;
-}
-
-\end{lstlisting}
-
-
-
-\subsection{PantallaMidas}
-%Cabecera
-\begin{lstlisting}
-#ifndef PantallaMidas_h
-#define PantallaMidas_h
-
-#include <Arduino.h>
-
-class PantallaMidas {
-// Clase para el manejo de una pantalla LCD alfanum�rica de 4 filas y 40 columnas modelo
-// Midas MC44005A6W-FPTLW desde una placa Arduino. Se configura un bus de datos de 4 bits. 
-
-  private:  // Recursos privados a esta clase
-  
-    int _DB4, _DB5, _DB6, _DB7, _E1, _E2, _RS;
-    // N�mero de se�ales Arduino utilizadas para la conexi�n a la pantalla
-    
-    int _fila;  
-    // �ltima fila posicionada 1...4
-    
-    void enviaOrden1(unsigned char orden);
-    // Env�a una orden al controlador 1 de la pantalla
-    
-    void enviaOrden2(unsigned char orden);
-    // Env�a una orden al controlador 2 de la pantalla
-    
-    void enviaOrden12(unsigned char orden);
-    // Env�a una orden a los controladores 1 y 2 de la pantalla
-    
-    void busDatos4Bits(unsigned char dato);
-    // Establece un valor para el bus de datos, utilizando los 4 bits
-    // menos significativos del par�metro
-    
-    void pulsoE1();
-    // Pulso a nivel alto en se�al E1 para transferencia con el controlador 1
-    
-    void pulsoE2();
-    // Pulso a nivel alto en se�al E1 para transferencia con el controlador 1
-
-  public:  // Miembros p�blicos de esta clase
-  
-    PantallaMidas(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS);
-    // Constructor al que se le indica qu� se�ales Arduino est�n conectadas a las 
-    // se�ales de la pantalla
-    
-    void configura();
-    // M�todo que hay que utilizar en setup() para configurar e inicializar los 
-    // controladores de la pantalla
-    
-    void borra();
-    // Borra toda la informaci�n mostrada en la pantalla
-    
-    void posiciona(int fila, int columna);
-    // Posiciona el cursor en una fila (1...4) y columna (1...40)
-    
-    void escribeCadena(const char * cadena);
-    // Escribe una cadena de caracteres en la posici�n actual del cursor
-
-    void escribeCadena(const String cadena);
-    
-    void escribeCaracter(char caracter);
-    // Escribe un car�cter en la posici�n actual del cursor
-
-    void muestraCursor(int muestralo);
-    // Hace que el cursor sea visible en funci�n del buleano que se pasa por par�metro
-
-};
-
-#endif
-\end{lstlisting}
-%codigo
-\begin{lstlisting}
-#include <PantallaMidas.h>
-
-PantallaMidas::PantallaMidas(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS) {  
-// Constructor al que se le indica qu� se�ales Arduino est�n conectadas a las 
-// se�ales de la pantalla
-
-  _DB4 = DB4;
-  _DB5 = DB5;
-  _DB6 = DB6;
-  _DB7 = DB7;
-  _E1 = E1;
-  _E2 = E2;
-  _RS = RS;
-  // Guarda los par�metros en datos privados
-  
-  _fila = 1;  // La fila inicial es la primera
-}
-
-void PantallaMidas::configura() {
-// M�todo que hay que utilizar en setup() para configurar e inicializar los 
-// controladores de la pantalla
-
-  pinMode(_DB4, OUTPUT);
-  pinMode(_DB5, OUTPUT);
-  pinMode(_DB6, OUTPUT);
-  pinMode(_DB7, OUTPUT);
-  pinMode(_E1, OUTPUT);
-  pinMode(_E2, OUTPUT);
-  pinMode(_RS, OUTPUT);
-  // Configura todas las se�ales como salidas digitales
-
-  digitalWrite(_E1, LOW);
-  digitalWrite(_E2, LOW);
-  digitalWrite(_RS, LOW);
-  // Pone a nivel bajo todas estas se�ales
-
-  // A continuaci�n se ejecuta la secuencia de inicializaci�n de ambos controladores
-  
-  delay(20);  // Espera 20 ms
-
-  busDatos4Bits(3);
-  pulsoE1();
-  pulsoE2();
-  // Transfiere a ambos controladores el valor 3 
-
-  delay(5);  // Espera 5 ms
-
-  busDatos4Bits(3);
-  pulsoE1();
-  pulsoE2();
-  // Transfiere a ambos controladores el valor 3 
-  
-  delay(1);  // Espera 1 ms
-
-  busDatos4Bits(3);
-  pulsoE1();
-  pulsoE2();
-  // Transfiere a ambos controladores el valor 3 
-  
-  delay(1);  // Espera 1 ms
-  
-  busDatos4Bits(2);
-  pulsoE1();
-  pulsoE2();
-  // Transfiere a ambos controladores el valor 2 
-
-  delay(1);  // Espera 1 ms
-
-  enviaOrden12(0x2D);
-  delay(1);
-  //0000101101
-  //0 0 0 0 1 DL N F - -
-  // Function set: 
-  // DL=0 establece bus de 4bits 
-  // N=1 establece manejo de 2 filas
-  // F=1 establece juego de caracteres de 5x11 puntos
-  
-  enviaOrden12(0x08);
-  delay(1);
-  // Display off
-
-  borra();
-  delay(2);
-  // Clear display
-  
-  enviaOrden12(0x06);
-  delay(1);
-  // 0 0 0 0 0 0 0 0 0 1 ID SH
-  // Entry mode set: 
-  // ID=1 para que el cursor se mueva hacia derecha
-  // SH=0 para que no haya desplazamiento de la pantalla
-  
-  enviaOrden12(0x0C);  // Display on
-  delay(1);
-}
-
-
-void PantallaMidas::muestraCursor(int muestralo) {
-// Hace que el cursor sea visible en funci�n del buleano que se pasa por par�metro
-
-  unsigned char orden1, orden2;
-  
-  if (muestralo) {  // Si hay que mostrarlo ...
-    if (_fila < 3) {  // Si es para el controlador 1 ...
-      orden1 = 0x0F;  // Muestra cursor en 1
-      orden2 = 0x0C;  // Oculta cursor en 2
-    } else {
-      orden1 = 0x0C;  // Oculta cursor en 1
-      orden2 = 0x0F;  // Muestra cursor en 2
-    }
-  } else {  // Si hay que ocultarlo ...
-    orden1 = 0x0C;  // Oculta cursor en 1
-    orden2 = 0x0C;  // Oculta cursor en 2
-  }
-  enviaOrden1(orden1);  // Env�a la orden al controlador 1
-  enviaOrden2(orden2);  // Env�a la orden al controlador 2
-}
-
-
-void PantallaMidas::pulsoE1() {
-// Pulso a nivel alto en se�al E1 para transferencia con el controlador 1
-
-  digitalWrite(_E1, HIGH);
-  digitalWrite(_E1, LOW);
-}
-
-void PantallaMidas::pulsoE2() {
-// Pulso a nivel alto en se�al E2 para transferencia con el controlador 2
-
-  digitalWrite(_E2, HIGH);
-  digitalWrite(_E2, LOW);
-}
-
-
-void PantallaMidas::busDatos4Bits(unsigned char dato) {
-// Establece un valor para el bus de datos, utilizando los 4 bits
-// menos significativos del par�metro
-
-  if (dato & 0x01)  // Si el bit 0 es un 1, entonces ...
-      digitalWrite(_DB4, HIGH);  // pon la se�al _DB4 a nivel alto
-      else digitalWrite(_DB4, LOW);  // si no, pon la se�al _DB4 a nivel bajo
-      
-  if (dato & 0x02)  // Si el bit 1 es un 1, entonces ...
-      digitalWrite(_DB5, HIGH);  // pon la se�al _DB5 a nivel alto
-      else digitalWrite(_DB5, LOW);  // si no, pon la se�al _DB5 a nivel bajo
-      
-  if (dato & 0x04)  // Si el bit 2 es un 1, entonces ...
-      digitalWrite(_DB6, HIGH);  // pon la se�al _DB6 a nivel alto
-      else digitalWrite(_DB6, LOW);  // si no, pon la se�al _DB6 a nivel bajo
-      
-  if (dato & 0x08)  // Si el bit 3 es un 1, entonces ...
-      digitalWrite(_DB7, HIGH);  // pon la se�al _DB7 a nivel alto
-      else digitalWrite(_DB7, LOW);  // si no, pon la se�al _DB7 a nivel bajo
-}
-
-
-void PantallaMidas::borra() {
-// Borra toda la informaci�n mostrada en la pantalla
-
-  enviaOrden12(0x01); 
-  // Env�a la orden de c�digo 0x01 a los dos controladores
-  
-  delay(2);  // Espera 2 ms a que se termine de ejecutar
-}
-
-
-void PantallaMidas::escribeCadena(const char * cadena) {
-// Escribe una cadena de caracteres en la posici�n actual del cursor
-
-  int i;  // Contador para el bucle
-  
-  i = 0;  // Desde el comienzo de la cadena ...
-  while(cadena[i])  // Mientras no se llegue a un byte con valor 0 ...
-    escribeCaracter(cadena[i++]);  // Escribe el car�cter y pasa al siguiente
-}
-
-void PantallaMidas::escribeCadena(const String cadena) {
-  //Escribe una cadena de string en la poisicion actual del cursor
-
-  int i;
-
-  i = 0;
-  while(cadena[i])
-    escribeCaracter(cadena[i++]);
-}
-
-
-void PantallaMidas::posiciona(int fila, int columna) {
-// Posiciona el cursor en una fila (1...4) y columna (1...40)
-
-  int posicion;  // Posici�n en la memoria interna del controlador
-
-  if (fila < 3) {   // Si es para el primer controlador ...
-    
-    posicion = (fila - 1) * 0x40 + columna - 1;
-    // La primera posici�n comienza en 0 para la fila 1 y en 0x40 para la fila 2
-    // Al avanzar en las columnas, se avanza en memoria a posiciones consecutivas
-    
-    enviaOrden1(0x80 | posicion);
-    // Env�a una orden al controlador 1 con la nueva posici�n del cursor
-    
-  } else {  // Lo mismo para el controlador 2
-    posicion = (fila - 3) * 0x40 + columna - 1;
-    enviaOrden2(0x80 | posicion);
-  }
-  
-  delay(1);  // Espera 1 ms a que el cursor se posicione
-  _fila = fila;  // Recuerda la fila donde est� situado el cursor
-}
-
-
-void PantallaMidas::enviaOrden1(unsigned char orden) {
-// Env�a una orden al controlador 1 de la pantalla
-
-  digitalWrite(_RS, LOW);  // Pone la se�al RS a nivel bajo
-  
-  busDatos4Bits(orden >> 4);  // Pone los 4 bits m�s significativos en el bus de datos
-  pulsoE1();  // Pulso en E1 para transferir esos bits
-  busDatos4Bits(orden & 0x0F);  // Pone los 4 bits menos significativos en el bus de datos
-  pulsoE1();  // Pulso en E1 para transferir esos bits
-}
-
-
-void PantallaMidas::enviaOrden2(unsigned char orden) {
-// Env�a una orden al controlador 2 de la pantalla
-
-  digitalWrite(_RS, LOW);  // Pone la se�al RS a nivel bajo
-  
-  busDatos4Bits(orden >> 4);  // Pone los 4 bits m�s significativos en el bus de datos
-  pulsoE2();  // Pulso en E2 para transferir esos bits
-  busDatos4Bits(orden & 0x0F);  // Pone los 4 bits menos significativos en el bus de datos
-  pulsoE2();  // Pulso en E2 para transferir esos bits
-}
-
-
-void PantallaMidas::enviaOrden12(unsigned char orden) {
-// Env�a una orden a ambos controladores
-
-  enviaOrden1(orden);   // Env�a la orden al controlador 1
-  enviaOrden2(orden);   // Env�a la orden al controlador 2
-}
-
-
-void PantallaMidas::escribeCaracter(char caracter) {
-// Env�a un car�cter a la pantalla, que se mostrar� en la posici�n actual del cursor. 
-// La posici�n del cursor se incrementa
-
-  digitalWrite(_RS, HIGH);   // Pone la se�al RS a nivel alto
-  
-  busDatos4Bits(caracter >> 4);  // Pone los 4 bits m�s significativos en el bus de datos
-  if (_fila < 3)  // Si es para el controlador 1 ...
-    pulsoE1();   // pulso en E1 para transferir esos bits al controlador 1
-    else pulsoE2();  // si no, pulso en E2 para transferir esos bits al controlador 2
-    
-  busDatos4Bits(caracter & 0x0F);    // Pone los 4 bits menos significativos en el bus de datos
-  if (_fila < 3)  // Si es para el controlador 1 ...
-    pulsoE1();   // pulso en E1 para transferir esos bits al controlador 1
-    else pulsoE2();  // si no, pulso en E2 para transferir esos bits al controlador 2
-    
-  delay(1);  // Retardo de 1 ms para esperar a que se escriba el car�cter
-}
-\end{lstlisting}
-
-
-
-\subsection{Teclado4x4}
-%Cabecera
-\begin{lstlisting}
-#ifndef Teclado4x4_h
-#define Teclado4x4_h
-
-class Teclado4x4 {
-  private:
-    int _salidasFilas[4], * _entradasColumnas[4];
-    char _caracteres[17];
-    int _pulsado, _fila, _columna;
-    unsigned long _t;
-  public:
-    Teclado4x4(int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char *caracteres);
-    void configura();
-    int comprueba();
-};
-
-#endif
-\end{lstlisting}
-%codigo
-\begin{lstlisting}
-#include <Teclado4x4.h>
-#include <Arduino.h>
-
-Teclado4x4::Teclado4x4(int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char *caracteres) {
-  _salidasFilas[0] = F1;
-  _salidasFilas[1] = F2;
-  _salidasFilas[2] = F3;
-  _salidasFilas[3] = F4;
-  _entradasColumnas[0] = C1;
-  _entradasColumnas[1] = C2;
-  _entradasColumnas[2] = C3;
-  _entradasColumnas[3] = C4;
-  strcpy(_caracteres,caracteres);
-  // Guarda los par�metros en datos privados
-}
-
-
-void Teclado4x4::configura() {
-  int i;
-  //memcpy (_salidasFilas, salidasFilas, 4 * sizeof(int));
-  //memcpy (_entradasColumnas, entradasColumnas, 4 * sizeof(int));
-  //strcpy (_caracteres, caracteres);
-  for (i = 0; i < 4; i++)
-    pinMode(_entradasColumnas[i], INPUT_PULLUP);
-  _pulsado = 0;
-  _t = millis();
-}
-
-
-int Teclado4x4::comprueba () {
-  int iSalida, iEntrada;
-
-  if (millis() - _t < 10) 
-    return 0;
-    else _t = millis();
-
-  if (_pulsado) {
-    pinMode(_salidasFilas[_fila], OUTPUT);
-    digitalWrite(_salidasFilas[_fila], LOW);
-    _pulsado = digitalRead(_entradasColumnas[_columna]) == LOW;
-    pinMode(_salidasFilas[_fila], INPUT);    
-    if (_pulsado)
-      return 0;
-  }
-  
-  if (! _pulsado) {
-    for (iSalida = 0; iSalida < 4 && ! _pulsado; iSalida ++) {
-      pinMode(_salidasFilas[iSalida], OUTPUT);
-      digitalWrite(_salidasFilas[iSalida], LOW);
-      for (iEntrada = 0; iEntrada < 4 && ! _pulsado; iEntrada ++) {
-        if (digitalRead(_entradasColumnas[iEntrada]) == LOW) {
-          _pulsado = 1;
-          _fila = iSalida;
-          _columna = iEntrada;
-        }
-      }
-      pinMode(_salidasFilas[iSalida], INPUT);
-    }
-  }
-  
-  if (_pulsado)
-    return _caracteres[_fila * 4 + _columna];
-  else return 0;
-}
-\end{lstlisting}
-
-
-
-\subsection{Menu}
-
-\section{Programa principal}
-
-\begin{lstlisting}
-#include "Menu.h"
-#include "ModbusTCP.h"
-#include "Consola.h"
-#include <Arduino.h>
-
-//Variables para la clase ModbusTCP
-char ssid[] = "LRA";
-char pass[] = "android2016";
-//Datos para la conexi�n a la red
-int puerto = 5333; //Puerto para la conexi�n al servidor
-byte ip[]={192,168,1,116};
-int puerto = 502; //Puerto para la conexi�n al servidor
-
-//Variable que reconoce el menu que est� 1=Men� principal, 2=Regulador PID, 3=Ciclo de regulaci�n
-String listaMenuPrincipal[] = {"Parametros PI", "Activar/Desactivar PI" , "Introducir consigna"};
-String listaMenuPI[] = {"Introducir parametros", "Visualizar parametros"};
-char tituloMenuPrincipal[] = "- Menu Principal -";
-char tituloMenuPI[] = "- PI -";
-
-ModbusTCPClass Mb(ssid,pass,puerto,ip);
-//Constructor de la clase ModbusTCP de parametros ssid, password, puerto e ip
-
-//Variables de registros para mandar al aut�mata
-float consigna;
-
-//Variables para las clase Teclado4x4 y Pantalla Midas
-char caracter;
-
-//Variable bool que representa si se activ� ciclo de regulaci�n o no true=activado, false=desactivado
-bool activacion;
-
-Consola consola(32, 33, 34, 35, 36, 37, 38, 22, 23, 24, 25, 26, 27, 28, 29, "789s456-123d.0ei");
-
-Menu menuPrincipal (tituloMenuPrincipal, listaMenuPrincipal, 3, true);
-Menu menuPI (tituloMenuPI, listaMenuPI, 2, false);
-
-
-// Construye un objeto para manejar una pantalla utilizando las se�ales Arduino 32 a 38
-// y para manejar el teclado usando las se�ales del 22 a 29 y la cadena que representa el teclado.
-void setup() {
-  // put your setup code here, to run once:
-  consola.configura();
-  // Configura las se�ales Arduino y env�a la secuencia de �rdenes de inicializaci�n
-  // a la pantalla y al teclado
-
-  consola.visualizaCadena(1,1,Mb.configura());
-  //Nos devuelve un string si se conect� a la red especificada
-  consola.visualizaCadena(2,1,Mb.connectServer());
-  //Nos devuelve un String si se conect� al servidor
-
-  consola.visualizaCadena(4,1,"Pulsa ENT para continuar");
-
-  activacion = Mb.leeBool(2);
-
-  while(consola.introduceCaracter() != 'e');
-
-  menuPrincipal.activarMenu();
-}
-
-/*#################### Funciones #######################*/
-
-void introducirDatosPI() {
-  float dato;
-
-  consola.borraPantalla();
-  consola.visualizaCadena(1,1,"Introduce Kp: ");
-  dato = consola.introduceReal(1,14,6);
-  Mb.escribeReal(10,dato);
-
-  consola.visualizaCadena(2,1,"Introduce Ti: ");
-  dato = consola.introduceReal(2,14,6);
-  Mb.escribeReal(12,dato);
-
-  /*consola.visualizaCadena(3,1,"Introduce Actuacion Minima: ");
-  dato = consola.introduceReal(3,22,6);
-  Mb.escribeReal(14,dato);
-
-  consola.visualizaCadena(4,1,"Introduce Actuacion Maxima: ");
-  dato = consola.introduceReal(4,22,6);
-  Mb.escribeReal(16,dato);*/
-}
-
-void visualizaDatosPI() {
-  consola.borraPantalla();
-
-  consola.visualizaCadena(1,1,"Kp:");
-  //consola.visualizaEntero(1,14,holdingRegisters[0]);
-  consola.visualizaReal(1,4,Mb.leeReal(10),2,2);
-
-  consola.visualizaCadena(2,1,"Ti:");
-  consola.visualizaReal(2,4,Mb.leeReal(12),2,2);
-
-  consola.visualizaCadena(3,1,"Salida Minima:");
-  consola.visualizaReal(3,16,Mb.leeReal(14),4,2);
-
-  consola.visualizaCadena(4,1,"Salida Maxima:");
-  consola.visualizaReal(4,16,Mb.leeReal(16),4,2);
-
-  consola.visualizaCadena(1,35,"<--");
-
-  while(consola.introduceCaracter() != 'i');
-}
-
-void activarCicloReg() {
-  //introduceConsigna();
-
-  activacion = true;
-  Mb.escribeBool(2,1);
-}
-
-void visualizarDatosAutomata() {
-  consola.visualizaCadena(1,30,"DATOS");
-
-  consola.visualizaCadena(2,26,"Consigna: ");
-  consola.visualizaReal(2,36,Mb.leeReal(3),4,2);
-
-  consola.visualizaCadena(3,26,"Salida: ");
-  consola.visualizaReal(3,36,Mb.leeReal(24),4,2);
-
-  consola.visualizaCadena(4,26,"Actuacion: ");
-  consola.visualizaReal(4,36,Mb.leeReal(18),4,2);
-}
-
-void introduceConsigna() {
-  float consigna;
-
-  consola.borraPantalla();
-
-  consola.visualizaCadena(1,1,"Introduce temperatura: ");
-  consigna = consola.introduceReal(1,23,6);
-
-  Mb.escribeReal(3,consigna);
-}
-
-/* ###################################################### */
-
-
-
-void loop() {
-  // put your main code here, to run repeatedly:
-
-
-  if (menuPrincipal.getActivo()) {
-    menuPrincipal.visualiza(consola);
-    visualizarDatosAutomata();
-    if (menuPrincipal.compruebaTecla(consola)) { //mira si se puls� la tecla ENT o -->
-      switch(menuPrincipal.getSel()) { //nos devuelve la posicion del menu
-        case 0:
-          //Parametros PI
-          menuPI.activarMenu();           //Activamos el menu del regulador PI
-          menuPrincipal.desactivarMenu(); //Desactivamos el menu principal
-          break;
-        case 1:
-          //Activar/Desactivar PI
-          activarCicloReg();          //Activamos regulador PI
-          break;
-        case 2:
-          //Introducir Consigna
-          introduceConsigna();
-          break;
-        }
-      }
-    }
-
-    if (menuPI.getActivo()) {
-      menuPI.visualiza(consola);
-      visualizarDatosAutomata();
-      if (menuPI.compruebaTecla(consola)) { //mira si se puls� la tecla ENT o -->
-        switch(menuPI.getSel()) { //nos devuelve la posicion del menu
-          case 0:
-            //Introducir par�metros PI
-            introducirDatosPI();
-            break;
-          case 1:
-            //Visualizar parametros PI
-            visualizaDatosPI();
-            break;
-          case -1:
-            //Si se puls� tecla <--
-            menuPI.desactivarMenu();           //Desactivamos el menu del regulador PI
-            menuPrincipal.activarMenu();      //Activamos el menu principal
-            break;
-        }
-      }
-    }
-}
-
-\end{lstlisting}
 
 
 \stopcontents[parts]
 
 \cleardoublepage
 
-\renewcommand{\documento}{ANEXOS}
+\renewcommand{\documento}{Pliego de condicions}
 \begin{tikzpicture}[remember picture, overlay]
   \draw[line width = 0.5pt] ($(current page.north west) + (-20pt,-800.5pt)$) rectangle ($(current page.south east) + (-133.5pt,-722.5pt)$);
 \end{tikzpicture}
@@ -2226,50 +1025,22 @@ void loop() {
 \pagestyle{fancy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{section}{�ndice del documento Pliego de condiciones}
+\addcontentsline{toc}{section}{Índice del documento Pliego de condiciones}
 \startcontents[parts]
-\begin{center}{\large \bf �ndice do documento PLIEGO DE CONDICIONS}\end{center}
+\begin{center}{\large \bf Índice do documento PLIEGO DE CONDICIONS}\end{center}
 
 {\hypersetup{hidelinks}\printcontents[parts]{}{-1}{\setcounter{tocdepth}{5}}}
 
 \cleardoublepage
 
-\chapter{Obxeto do Pliego de Condici�ns}
+\chapter{Obxeto do Pliego de Condicións}
 
-O obxeto deste documento � establecer os criterios para a relación establecida entre os axentes implicados nas obras definidas neste proxecto e servir de base para a execuci�n do contrato entre o Enxe�eiro Director e a empresa demandate.
+O obxeto deste documento é establecer os criterios para a relación establecida entre os axentes implicados nas obras definidas neste proxecto e servir de base para a execución do contrato entre o Enxeñeiro Director e a empresa demandate.
 
 
-\chapter{Disposici�n de car�cter xeral}
+\chapter{Disposición de carácter xeral}
 
-\begin{enumerate}
-\item A montaxe e mecanización completa dos equipos implicados ser� realizada �ntegramente pola empresa solicitante.
-\item A empresa ser� a encargada de obter os permisos obrigatorios para a realizaci�n do proxecto.
-\item O enxe�eiro de proxecto estar� a cargo da direcci�n e supervisi�n da posta en marcha.
-\item A empresa ten dereito a tomar copias das especificaci�ns e do orzamento.
-\item O instalador ser� responsable do cumprimento das normas de seguridade pertinentes durante a montaxe.
-\item O instalador tam�n ser� responsable ante os Tribunais por accidentes que, debido � s�a inexperiencia ou descoido, ocorreron durante a montaxe.
-\item O instalador proporcionar� as ferramentas necesarias para a s�a realizaci�n.
-\item Os materiais usados ser�n da mellor calidade.
-\item A forma de pagamento establecida ser� de dous pagos do seguinte xeito: 30\% no momento da posta en marcha do proxecto e do 70\% restante cando se complete a instalaci�n.
-\item Calquera das partes pode rescindir o contrato sempre que se produzan os seguintes casos: falta de pagamento, modificaci�n dos aspectos fundamentais do proxecto acordado ou acci�ns con mala fe.
-\end{enumerate}
-
-\chapter{Condici�ns particulares}
-
-\begin{enumerate}
-\item A propiedade intelectual dos procesos descritos pertencen � enxe�eiro de proxecto.
-\item O proxecto cumpre coa Directiva 2006/42/CE sobre m�quinas.
-\item O proxecto cumpre coa norma UNE-EN ISO 12100-2:2003.
-\item Os interruptores deben ser equipos completamente pechados e protexidos contra contactos directos e indirectos.
-\item Os fusibles montados ser�n de tal construci�n que non se poida tocar ning�n elemento de tensi�n e que se instalar�n de xeito que se desconecten automaticamente da fonte de enerx�a antes de ser accesibles.
-\item O aut�mata debe colocarse nun armario para que estea protexido contra o po e os axentes corrosivos.
-\item Debe asegurarse de que o aut�mata estea firmemente sostido para evitar choques e vibraci�ns.
-\item A humedade non pode superar o 80\%.
-\item	 A tensi�n subministrada � aut�mata debe ser estable e do valor indicado polo fabricante.
-\item	D�bense levar a cabo revisi�ns peri�dicas das instalaci�ns.
-\item	Constit�ese unha garant�a dun ano na que o mantemento ser� gratu�to, sempre que non se deba a mal uso das instalaci�ns. A partir do ano o custo de mantemento deber� negociarse co Enxe�eiro autor.
-\end{enumerate}
-
+\chapter{Condicións particulares}
 
 
 \stopcontents[parts]
@@ -2352,7 +1123,7 @@ O obxeto deste documento � establecer os criterios para a relación establecid
 \pagestyle{fancy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{section}{Índice del documento Presupuesto}
+\addcontentsline{toc}{section}{Índice del documento Orzamento}
 \startcontents[parts]
 \begin{center}{\large \bf Índice do documento ORZAMENTO}\end{center}
 
@@ -2372,7 +1143,7 @@ O obxeto deste documento � establecer os criterios para a relación establecid
 \begin{center}
     \begin{tabular}{|rrrlr|}
     \toprule
-    \rowcolor[rgb]{ .31,  .506,  .741} \multicolumn{1}{|l}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Descripci�n}}} & \multicolumn{1}{l}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Ud}}} & \multicolumn{1}{l}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Cantidade}}} & \textcolor[rgb]{ 1,  1,  1}{\textbf{Precio unitario}} & \multicolumn{1}{l|}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Precio total}}} \\
+    \rowcolor[rgb]{ .31,  .506,  .741} \multicolumn{1}{|l}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Descripción}}} & \multicolumn{1}{l}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Ud}}} & \multicolumn{1}{l}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Cantidade}}} & \textcolor[rgb]{ 1,  1,  1}{\textbf{Precio unitario}} & \multicolumn{1}{l|}{\textcolor[rgb]{ 1,  1,  1}{\textbf{Precio total}}} \\
     \midrule
     \rowcolor[rgb]{ .863,  .902,  .945} \multicolumn{1}{|l}{Desplazamentos} & \multicolumn{1}{c}{Viaxes} & \multicolumn{1}{c}{30} & \multicolumn{1}{r}{0.85 \euro} & 25.50 \euro \\
     \midrule
@@ -2389,7 +1160,7 @@ O obxeto deste documento � establecer os criterios para a relación establecid
     \rowcolor[rgb]{ .863,  .902,  .945}       &       &       & Total & 851.24 \euro \\
     \bottomrule
     \end{tabular}%
-\caption{T�boa prezos planificacion}
+\caption{Prezos planificación}
 \label{PrezosPlanificacion}
 \end{center}
 \end{table}
