@@ -90,14 +90,14 @@
 
 
 
-% Página que contiene el �ndice de contenidos del TFG
+% Página que contiene el Índice de contenidos del TFG
 \renewcommand{\contentsname}{Contido do TFG}
 \addcontentsline{toc}{section}{Contidos do TFG}
 %\setcounter{tocdepth}{3}
 {\hypersetup{hidelinks}\tableofcontents}
 \addtocontents{toc}{\protect\thispagestyle{fancy}}
 
-% Página que contiene el �ndice de listas de figuras
+% Página que contiene el Índice de listas de figuras
 \cleardoublepage
 \phantomsection
 \renewcommand*\listfigurename{Índice de figuras}
@@ -105,22 +105,13 @@
 {\hypersetup{hidelinks}\listoffigures}
 \addtocontents{lof}{\protect\thispagestyle{fancy}}
 
-% Página que contiene el �ndice de listas de tablas
+% Página que contiene el índice de listas de tablas
 \cleardoublepage
 \phantomsection
 \renewcommand*\listtablename{Índice de tablas}
 \addcontentsline{toc}{section}{\listtablename}
 {\hypersetup{hidelinks}\listoftables}
 \addtocontents{lot}{\protect\thispagestyle{fancy}}
-
-
-% Página que contiene el �ndice de listados de programaci�n
-\renewcommand\lstlistlistingname{Listado de códigos de programación}
-\renewcommand\lstlistingname{Código}
-\cleardoublepage\phantomsection
-\addcontentsline{toc}{section}{\lstlistlistingname}
-{\hypersetup{hidelinks}\lstlistoflistings}
-{\protect\thispagestyle{fancy}}
 
 \cleardoublepage
 
@@ -217,7 +208,7 @@
 
 \section{Estado de arte}
 
-Hoxe en día todo está conectado á rede, non solo persoas conectadas a través de un dispositivo, senón a calqueira "cousa" que teña algunha funcionalidade e que poida ser controlado desde calqueira dispositivos, xa sexa desde un smartphone, un ordenador ou desde un smartwatch. Esto é debido á implementación de IoT (Internet of Things). Pódese definir como \textit{"unha rede que conecta "cousas" identificables de maneira única a Internet. As "cousas" teñen capacidades de captura/actuación e de potencial de programación. Mediante a explotación  da identificación e captura única, pódese recoller información mais cambiar o estado da "cousa" onde queiras, en calquer momento e por calquer motivo"} \cite{IoT}
+Hoxe en día todo está conectado á rede, non solo persoas conectadas a través de un dispositivo, senón a calqueira "cousa" que teña algunha funcionalidade e que poida ser controlado desde calqueira dispositivos, xa sexa desde un smartphone, un ordenador ou desde un smartwatch. Esto é debido á implementación de IoT (Internet of Things). Pódese definir como \textit{<<unha rede que conecta ``cousa'' identificables de maneira única a Internet. As ``cousas'' teñen capacidades de captura/actuación e de potencial de programación. Mediante a explotación  da identificación e captura única, pódese recoller información mais cambiar o estado da ``cousa'' onde queiras, en calquer momento e por calquer motivo>>} \cite{IoT}
 
 \begin{figure}[H]
 	\begin{center}
@@ -229,7 +220,7 @@ Hoxe en día todo está conectado á rede, non solo persoas conectadas a través
 
 \section{Obxeto}
 
-O obxetivo principal deste proxecto vai ser o de realizar a monitorización de un procesado de un pedido ou picking nun almacén para un operario a través dun terminal de operador inalambrico.
+O obxetivo principal deste proxecto vai ser o de realizar a monitorización de un procesado de un pedido ou picking nun almacén para un operario a través dun terminal de operador inalámbrico.
 
 \begin{figure}[H]
 	\begin{center}
@@ -240,7 +231,7 @@ O obxetivo principal deste proxecto vai ser o de realizar a monitorización de u
 \end{figure}
 
 Debido ós altos costes dos terminales, como por exemplo SYMBOL VC5090, pensouse en realizalo cunha placa Arduino e o módulo WiFi ESP8266 pola súa capacidade de programación e, por suposto, polo seu precio.
-Por outro lado, tamén conta cunha interfaz web para o almacén, podendo gestionar tanto os productos coma os pedidos.
+Por outro lado, tamén conta cunha interfaz web para o almacén, podendo xestionar tanto os productos coma os pedidos.
 
 \begin{figure}[H]
 	\begin{center}
@@ -355,7 +346,7 @@ Neste proxecto vaise usar Arduino Mega 2560.
 
 O entorno de desenvolvemento integrado (Integrated Development Environment ou IDE) é un programa informático composto por un conxunto de ferramentas de programación. 
 
-Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom con un plugin chamado \textit{PlatformIO}, que nos vai permitir poder compilar, subir e debbugear código na placa.
+Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom con un plugin chamado \textit{PlatformIO}, que nos vai permitir poder compilar, subir e depurar código na placa.
 
 \begin{figure}[H]
 	\begin{center}
@@ -377,7 +368,7 @@ Para a creación dun novo proxecto, faise click en New Project, poñéndolle un 
 
 \subsection{Sketches}
 
-Os programas de Arduino, tamén chamados Sketch, están compostos por un solo ficheiro con extensión \"{.ino"}, pero neste caso, o arquivo vai ter extensión \"{.cpp} como no lenguaxe de programación C++.
+Os programas de Arduino, tamén chamados Sketch, están compostos por un solo ficheiro con extensión ``.ino'', pero neste caso, o arquivo vai ter extensión ``.cpp'' como no lenguaxe de programación C++.
 
 \subsection{Librerías}
 
@@ -392,7 +383,7 @@ Normalmente veñen comprimidas nun archivo ZIP e conteñen:
 \item Un directorio con varios exemplos para axudarnos a entendela.
 \end{itemize}
 
-Para incluir librerías no noso proxecto, na carpeta chamada "lib" importaranse, creando un packete para cada unha.
+Para incluir librerías no noso proxecto, na carpeta chamada ``lib'' importaranse, creando un packete para cada unha.
 
 \begin{figure}[H]
 	\begin{center}
@@ -404,14 +395,22 @@ Para incluir librerías no noso proxecto, na carpeta chamada "lib" importaranse,
 
 \subsection{Serial Monitor}
 
-O plugin PlataformIO ten tamén a opción mostrar o que se comunique ca placa Arduino por medio do porto Serial.
+PlatformIO ten tamén a opción mostrar o que se comunique ca placa Arduino por medio do porto Serial.
 Esto vai ser útil á hora do desenvolvemento xa que nos permite imprimir por pantalla datos ou estadísticas.
- Para eso iremos o apartado Serial Monitor e configuraremos o porto no que temos conectada a placa e os baudios:
+ Para eso iremos o apartado Serial Monitor e configuraremos o porto no que temos conectada a placa e os baudios, que é a velocidade de retransmision.
+ 
+ \begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=7cm]{images/serial_monitor.png}
+	\end{center}
+	\caption{Serial Monitor}
+	\label{fig:LibreriasAtom}
+\end{figure}
 
 \section{API REST}
 
-API (Application Programming Incerface) é unha colección de funcións e métodos desenvolvidas para que outros usuarios poidan usalas. 
-REST (Representatioal State Transfer) é unha arquitectura de desarrollo web que usa o estándar HTTP. 
+API (Application Programming Incerface) é unha colección de funcións e métodos desenvolvidas para dotar dunha capa de abstracción para o manexo dun dispositivo, estructura de datos ou calqueira outra funcionalidade. 
+REST (Representatioal State Transfer) é unha arquitectura de desenvolvemento web que usa o estándar HTTP. 
 Con API REST vai permitir o uso de unha función ou método que pertence a unha plataforma para o uso.
 
 \subsection{Arquitectura}
@@ -420,7 +419,7 @@ Con API REST vai permitir o uso de unha función ou método que pertence a unha 
 
 Un recurso representa unha sección, arquivo ou contido que queremos obter ou modificar. Para poder identificalo, usaremos URI's, que teñen que cumprir:
 \begin{itemize}
-    \item Os nomes non poden levar verbos.
+    \item Non se debe usar verbos nos nomes de URI.
     \item Deben ser únicas.
     \item Non deben tomar en conta o formato.
     \item Deben ter unha xerarquía lóxica.
@@ -440,10 +439,35 @@ Os principais métodos son:
     \item PATCH: Edicion de partes de recursos.
 \end{itemize}
 
+\section{Django}
+
+Django é un framework Open Source para o desenvolvemento de aplicacións web. Está escrito na lenguaxe \textbf{Python}. Contén un conxunto de compoñentes que van axudar a compoñer aplicacións web facil e rapidamente.
+
+\subsection{Django API RESTful}
+
+É un microframework de Django que vai permitir a creación de un servicio API REST. A súa estructura básase en 3 compoñentes: \textbf{serializadores}, \textbf{vistas} e \textbf{routers}.
+
+\begin{itemize}
+    \item Os routers permiten definir as url da API creada dunha meneira sencilla e arbitraria. Permiten definir que método de unha class view se vai executar ó chegar unha petición HTTP en función do método HTTP (GET, POST, PUT, PATCH...).
+    \item As views son extensións das class-view de Django, que permiten facilitar o enganche cos routers, serializadores e modelos.
+    \item Os serializadores permiten definir como van ser as respostas que devolve o API e como se procesan o contido das peticións que reciben.
+\end{itemize}
+
+Ten a seguinte estructura:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=4cm]{images/estructura_djangoREST.png}
+	\end{center}
+	\caption{Estructura Django API RESTful}
+	\label{fig:EstructuraDjangoAPI}
+\end{figure}
+
+
 \chapter{Compoñentes Hardware}
 \section{Arduino Mega 2560}
 
-O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o desenvolvimento de aplicacións para este microcontrolador; simplemente conéctase a unha computadora con un cable USB ou aliméntase cun adaptador AC-to-DC ou batería para comezar. 
+Arduino Mega 2560 está basado no microcontralador ATmega2560. Ten 54 pins de entrada/saída dixitais (dos cales 15 pódense empregar como saídas PWM), 16 entradas analóxicas, 4 UART (portas de serie de hardware), un oscilador de cristal de 16 MHz, unha conexión USB, unha toma de enerxía, un encabezado ICSP, e un botón de reset. Contén todo o necesario para soportar o desenvolvimento de aplicacións para este microcontrolador; simplemente conéctase a unha computadora con un cable USB ou aliméntase cun adaptador AC-to-DC ou batería para comezar. 
 
 \begin{figure}[H]
 	\begin{center}
@@ -455,7 +479,7 @@ O Arduino Mega 2560 é un microcontralador basado no ATmega2560. Ten 54 pins de 
 
 \subsection{Alimentación eléctrica}
 
-Pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía está seleccionada automaticamente. 
+Pode ser alimentado a través da conexión USB ou cunha fonte de alimentación externa. A fonte de enerxía selecciónase automaticamente. 
 
 A placa pode funcionar nunha fonte externa de 6 a 20 voltios. Se se fornece con menos de 7V, con todo, o pin de 5V pode fornecer menos de 5V e pode volverse inestable. Se usa máis de 12V, o regulador de voltaxe pode sobrecalentarse e dañala. O rango recomendado é de 7 a 12V.
 
@@ -464,7 +488,7 @@ Os pines de alimentación son os seguintes:
 \begin{itemize}
 \item \textbf{Vin.} A tensión de entrada á placa cando está a usar unha fonte de enerxía externa (a diferenza de 5 voltios da conexión USB ou outra fonte de alimentación regulada). Pode fornecer a tensión a través deste pin ou, se fornecer a tensión a través do conector de enerxía, accédese a través deste pin.
 \item \textbf{5V.} Este pin outorga un regulador de 5V desde o regulador do taboleiro. O taboleiro pode ser subministrado con enerxía desde a toma de alimentación de CC (7-12V), o conector USB (5V) ou a pin VIN do taboleiro (7-12V). A subministración de tensión a través dos pines de 5V ou 3.3V evita o regulador e pode danar a táboa. Non o aconsellamos.
-\item \textbf{3V3.} Unha fonte de 3,3 voltios xerada polo regulador de a bordo. O sorteo máximo actual é de 50 mA.
+\item \textbf{3V3.} Unha fonte de 3,3 Voltios xerada polo regulador de a bordo. O amperaxe máximo actual é de 50 mA.
 \item \textbf{GND.} Pins de terra.
 \item \textbf{IOREF.} Este pin proporciona a referencia de tensión coa que funciona o microcontrolador. Un escudo configurado correctamente pode ler a tensión de tecto IOREF e seleccionar a fonte de enerxía adecuada ou habilitar traductores de tensión nas saídas para traballar cos 5V ou 3.3V.
 \end{itemize}
@@ -634,10 +658,6 @@ A conexión co módulo ESP8266 é bastante sinxela en comparación cos demáis c
 
 A única dificultade que imos ter vai ser á hora de alimentalo, xa que ten unha tensión de alimentación de 3,3V. En ningún caso pode alimentarse cunha tensión superior a 3,6 V, ou dañaríamolo.
 
-Por outro lado, o consumo non pode sobrepasar o amperaxe de 200mA. O regulador do voltaxe de Arduino de 3,3V so pode proporcionar 50mA (150mA como máximo), polo que a alimentación é insuficiente e teríamos que alimentalo externamente para non sufrir cortes.
-
-A comunicación mediante porto serie conectando os pines RxD e TxD.
-
 A conexión coa placa vai ser a seguinte:
 
 \begin{figure}[H]
@@ -750,7 +770,9 @@ char caracter = teclado.comprueba();
 
 \subsection{ESP6288 ESP-01}
 
-Os comandos básicos para a comunicación entre o módulo e a placa Arduino chámanse AT. O básicos reflexanse na seguinte táboa:
+\subsubsection{Comandos AT}
+
+Serven para establecer comunicación entre o módulo e a placa Arduino. Os comandos básicos refléxanse na seguinte táboa:
 
 \begin{table}[!h]
 \centering
@@ -785,9 +807,13 @@ AT+CIPSTATUS & Comproba a conexión & (id),(tipo),(direccion),(porto) & AT+CIPST
 \label{comandosAT}
 \end{table}
 
-Usaremos unha librería Open Source \textit{WiFiEsp} que nos facilitará a programación con comandos AT, xa que están implementados mediante funcións.
+Para o manexo dos comandos, vaise usar unha librería Open Source \textit{WiFiEsp}\cite{esp}.
 
-Pódese atopar manuais e exemplos no repositorio: textit{https://github.com/bportaluri/WiFiEsp}.
+\subsubsection{Conexión e consultas contra o servidor}
+
+Implementouse a clase \textit{ConnectEsp}, que se usará para a conexión a un punto de acceso (AP) como para facer consultas a base de datos creada por Django API REST. 
+
+Para manexar os datos recibidos das consultas, vaise usar outra librería Open Source chamada \textit{ArduinoJSON}, que vai permitir tanto xerar como dividir datos tipo Json \cite{Json}.
 
 \section{Django RESTful Web Framework}
 
@@ -799,7 +825,7 @@ A continuación móstrase como creala:
 
 \subsection{Crear directorio base}
 
-Vaise crear un directorio onde vai estar contido o código
+Vaise crear un directorio onde vai estar contido o código. Ábrese unha ventana de terminal:
 
 \begin{minted}{bash}
   $ mkdir tfg_django
@@ -808,7 +834,7 @@ Vaise crear un directorio onde vai estar contido o código
 
 \subsection{Configurar entorno virtual}
 
-Esto vainos permitir aislar as dependencias do proxecto, eliminando os conflictos de librerías locais do sistema.
+Esto vai permitir aislar as dependencias do proxecto, eliminando os conflictos de librerías locais do sistema.
 \begin{minted}{bash}
   $ virtualenv tutorial
   $ source tfg_django/bin/activate #esto activará o noso entorno virtual.
@@ -831,19 +857,376 @@ Vaise crear o proxecto dentro do directorio base e inicializar a configuración.
   $ django-admin.py startapp encargos
 \end{minted}
 
+Vaise modificar o arquivo \textit{almacen/settings.py} para añadir a aplicación creada mais a librería.
+
+\begin{minted}{python}
+INSTALLED_APPS = (
+    ...
+    'rest_framework',
+    'encargos',
+)
+\end{minted}
+
+\subsection{Crear Models}
+
+Vaise modificar o arquivo \textit{encargos/models.py} para crear o noso modelo.
+
+\begin{minted}{python}
+from django.db import models
+
+class Encargo(models.Model):
+
+    operario = models.ForeignKey(
+        'auth.User',
+        related_name='encargo',
+        on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True)
+    completado = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ('created',)
+
+
+class Producto(models.Model):
+    AREA1 = '1'
+    AREA2 = '2'
+    AREAS = (
+        (AREA1, 'Area 1'),
+        (AREA2, 'Area 2'),
+    )
+    name = models.CharField(max_length=50)
+    localizacion = models.CharField(
+        max_length=2,
+        choices=AREAS,
+        default=AREA1, 
+    )
+
+    class Meta:
+        ordering = ('name',)
+
+    def __str__(self):
+        return self.name
+
+
+class Detalle_Encargo(models.Model):
+    producto = models.ForeignKey(
+        Producto, 
+        related_name='producto', 
+        on_delete=models.CASCADE)
+    encargo = models.ForeignKey(
+        Encargo, 
+        on_delete=models.CASCADE)
+    cantidade = models.IntegerField()
+)
+\end{minted}
+
+Para crear e xerar migracións usaremos o comando:
+
+\begin{minted}{bash}
+  $ python manage.py makemigrations 
+  $ python manage.py migrate
+\end{minted}
+
+\subsection{Crear ModelSerializers}
+
+Créase un serializer en \textit{encargos/serializers.py}
+
+\begin{minted}{python}
+from rest_framework import serializers
+from encargos.models import Encargo
+from encargos.models import Producto
+from encargos.models import Detalle_Encargo
+from django.contrib.auth.models import User
+
+
+class UserEncargoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Encargo
+        fields = (
+            'url',
+            'name')
+
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    encargos = UserEncargoSerializer(many=True, read_only=True)
+
+    class Meta:
+        model = User
+        fields = (
+            'url', 
+            'pk',
+            'username',
+            'encargos',
+            'password'
+        )
+
+class EncargoSerializer(serializers.HyperlinkedModelSerializer):
+
+    class Meta:
+        model = Encargo
+        fields = (
+            'url',
+            'pk',
+            'created',
+            'completado'
+    )
+
+
+class ProductoSerializer(serializers.HyperlinkedModelSerializer):
+    localizacion = serializers.ChoiceField(choices=Producto.AREAS)
+    area_description = serializers.CharField(source='get_area_display', read_only=True)
+    class Meta:
+        model = Producto
+        fields = (
+            'url',
+            'pk',
+            'name',
+            'localizacion',
+            'area_description',
+        )
+
+class Detalle_EncargoSerializer(serializers.ModelSerializer):
+    localizacion_producto = ProductoSerializer(many=True, read_only=True)
+    encargo_completado = EncargoSerializer(many=True, read_only=True)
+    class Meta:
+        model = Detalle_Encargo
+        fields = (
+            'url',
+            'pk',
+            'encargo',
+            'producto',
+            'cantidade',
+            'localizacion_producto',
+            'encargo_completado'
+        )
+\end{minted}
+
+\subsection{Vistas normales en Django}
+
+Unha vez creado o serializador, vaise crear a API usando vistas funcionais ou vistas simples en Django. Para eso, vaise modificar o arquivo \textit{encargos/views.py}.
+
+\begin{minted}{python}
+from encargos.models import Encargo
+from encargos.models import Producto
+from encargos.models import Detalle_Encargo
+from encargos.serializers import EncargoSerializer
+from encargos.serializers import ProductoSerializer
+from encargos.serializers import Detalle_EncargoSerializer
+from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.reverse import reverse
+from django.contrib.auth.models import User
+from encargos.serializers import UserSerializer
+from rest_framework import permissions
+from encargos.permissions import IsOperarioOrReadOnly
+
+
+class UserList(generics.ListAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    name = 'user-list'
+
+
+class UserDetail(generics.RetrieveAPIView):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+    name = 'user-detail'
+
+class EncargoList(generics.ListCreateAPIView):
+    queryset = Encargo.objects.all()
+    serializer_class = EncargoSerializer
+    name = 'encargo-list'
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOperarioOrReadOnly,
+        )
+    def perform_create(self, serializer):
+        # Pass an additional owner field to the create method
+        # To Set the owner to the user received in the request
+        serializer.save(operario=self.request.user)
+
+
+class EncargoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Encargo.objects.all()
+    serializer_class = EncargoSerializer
+    name = 'encargo-detail'
+    permission_classes = (
+        permissions.IsAuthenticatedOrReadOnly,
+        IsOperarioOrReadOnly)
+
+
+class ProductoList(generics.ListCreateAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    name = 'producto-list'
+
+
+class ProductoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+    name = 'producto-detail'
+    
+
+class Detalle_EncargoList(generics.ListCreateAPIView):
+    queryset = Detalle_Encargo.objects.all()
+    serializer_class = Detalle_EncargoSerializer
+    name = 'detalle_encargo-list'
+
+
+class Detalle_EncargoDetail(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Detalle_Encargo.objects.all()
+    serializer_class = Detalle_EncargoSerializer
+    name = 'detalle_encargo-detail'
+    
+
+class ApiRoot(generics.GenericAPIView):
+    name = 'api-root'
+    def get(self, request, *args, **kwargs):
+        return Response({
+            'productos': reverse(ProductoList.name, request=request),
+            'detalle_encargo': reverse(Detalle_EncargoList.name, request=request),
+            'encargos': reverse(EncargoList.name, request=request),
+            'users': reverse(UserList.name, request=request),
+            })
+\end{minted}
+
+Finalmente, agrégase as url para poder mostrar os servicios. Modificase o arquivo \textit{encargos/urls.py}.
+\begin{minted}{python}
+from django.conf.urls import url
+from encargos import views
+
+
+urlpatterns = [
+    url(r'^encargos/$', 
+        views.EncargoList.as_view(),
+        name=views.EncargoList.name),
+    url(r'^encargos/(?P<pk>[0-9]+)/$', 
+        views.EncargoDetail.as_view(),
+        name=views.EncargoDetail.name),
+    url(r'^productos/$', 
+        views.ProductoList.as_view(),
+        name=views.ProductoList.name),
+    url(r'^productos/(?P<pk>[0-9]+)/$', 
+        views.ProductoDetail.as_view(),
+        name=views.ProductoDetail.name),
+    url(r'^detalle_encargo/$', 
+        views.Detalle_EncargoList.as_view(),
+        name=views.Detalle_EncargoList.name),
+    url(r'^detalle_encargo/(?P<pk>[0-9]+)/$', 
+        views.Detalle_EncargoDetail.as_view(),
+        name=views.Detalle_EncargoDetail.name),
+    url(r'^users/$',
+        views.UserList.as_view(),
+        name=views.UserList.name),
+    url(r'^users/(?P<pk>[0-9]+)/$',
+        views.UserDetail.as_view(),
+        name=views.UserDetail.name),
+    url(r'^$',
+        views.ApiRoot.as_view(),
+        name=views.ApiRoot.name),
+]
+\end{minted}
+
+\subsection{Visualización API}
+
+Para mostrar a API, levantarase o servidor con:
+
+\begin{minted}{bash}
+  $ python manage.py runserver 
+\end{minted}
+
+Por defecto, o servidor lanzarase en \textit{http://127.0.0.0.1:8000}. Esto pódese modificar pasándolle como argumento o host e porto desexado. Por exemplo:
+
+\begin{minted}{bash}
+  $ python manage.py runserver 192.168.1.116:8000
+\end{minted}
 
 \chapter{Resultados}
 
+Para lanzar o servidor, mediante unha ventana de terminal escribiremos:
+
+\begin{minted}{bash}
+  $ cd tfg_django                                 #accédese a carpeta do proxecto
+  $ source env/bin/activate                       #actívase o entorno virtual
+  $ cd almacen                                    #accédese a app do servicio API
+  $ python manage.py runserver 192.168.100.3:8000 #lánzase o servidor no host do ordenador
+\end{minted}
+
+Conectarase a placa Arduino Mega 2560 á unha fonte de alimentación. Neste caso, conectarase vía USB. Unha vez conectado, terminal de operador inalámbrico vai mostrar que se conectou á rede inalámbrica asignada. Neste caso conectarase a \textit{HUAWEI-CW4a}.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=6cm]{images/conectar_rede.JPG}
+	\end{center}
+	\caption{Conexión á rede HUAWEI-Cw4a}
+	\label{fig:Encargo1}
+\end{figure}
+
+O terminal de operador mostra se hai encargos para facer. Neste caso, vai reflexar o encargo con id 2, xa que como podemos ver, o encargo con id 1 está completado.
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=5cm]{images/encargo_1.png}
+	\end{center}
+	\caption{Encargo con pk = 1}
+	\label{fig:Encargo1}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=5cm]{images/id_encargo.JPG}
+	\end{center}
+	\caption{Encargo pk = 2 no terminal}
+	\label{fig:Encargo1}
+\end{figure}
 
 
 
-\chapter{Conclusións}
+Ó darlle o operador a tecla ENT, o terminal mostrará o primeiro producto co seu nome, localización e cantidade. 
 
-As melloras que se poden aplicar poden ser as seguintes:
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=6cm]{images/detalles_producto.JPG}
+	\end{center}
+	\caption{Detalles Producto}
+	\label{fig:Encargo1}
+\end{figure}
+
+Cando o operador meta ese producto ou productos na caixa e lle de a tecla ENT, o terminal mostrará o seguinte producto e así sucesivamente.
+
+Cando se complete o pedido, o terminal mostrará unha mensaxe na pantalla de que se rematou, quedando rexistrado na API.
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=8cm]{images/API_modificada.png}
+	\end{center}
+	\caption{Producto completado na aplicación}
+	\label{fig:Encargo1}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=8cm]{images/encargo_completado.JPG}
+	\end{center}
+	\caption{Producto completado no terminal}
+	\label{fig:Encargo1}
+\end{figure}
+
+En todo momento se poderá visualizar a parte do servidor cunha interfaz sencilla pero efectiva que será a seguinte:
+
+\begin{figure}[H]
+	\begin{center}
+		\includegraphics[width=12cm]{images/API_Root_Django.png}
+	\end{center}
+	\caption{Interfaz Django API RESTful}
+	\label{fig:Encargo1}
+\end{figure}
+
+\chapter{Líneas futuras}
+
+Para futuras versións deste proxecto, contémplanse as seguintes melloras na parte de sofware:
 
 \begin{itemize}
-    \item Mellora da interfaz do servicio web
-    \item Autentificación do operador mediante uso dun módulo que reconoza as huellas de actilares
+    \item Mellora da interfaz do servicio web, podendo subir fotos dos productos.
+    \item Autentificación do operador mediante uso dun módulo que reconoza as huellas dactilares ou por código de operador.
 \end{itemize}
 
 
@@ -851,6 +1234,9 @@ As melloras que se poden aplicar poden ser as seguintes:
 
 \bibitem{IoT} \textsc{Brian Russell, Drew Van Duren}; \textit{Practical Internet of Things Security}, PACKT Publishing (Xuño 2016).
 \bibitem{Django} \textsc{Gastón C. Hillar}, \emph{Building RESTful Python Web}, PACKT Publishing (Outubro 2016).
+\bibitem{esp} \textit{WifiEsp Library}, A ESP8266 Library for Arduino. Dispoñible en: \url{https://github.com/bportaluri/WiFiEsp}.
+\bibitem{Json} \textit{Arduino JSON}, A JSON Library for Arduino. Dispoñible en: \url{https://arduinojson.org}.
+
 					
 \end{thebibliography}
 
@@ -943,15 +1329,949 @@ As melloras que se poden aplicar poden ser as seguintes:
 {\hypersetup{hidelinks}\printcontents[parts]{}{-1}{\setcounter{tocdepth}{5}}}
 
 \cleardoublepage
-\chapter{Códigos de programción do Arduino}
+\chapter{Códigos de programación do Arduino}
+
+\section{Librerías}
+
+\subsection{PantallaMidas}
+
+\subsubsection{Cabeceira}
+\begin{lstlisting}
+#ifndef PantallaMidas_h
+#define PantallaMidas_h
+
+#include <Arduino.h>
+
+class PantallaMidas {
+// Clase para el manejo de una pantalla LCD alfanumérica de 4 filas y 40 columnas modelo
+// Midas MC44005A6W-FPTLW desde una placa Arduino. Se configura un bus de datos de 4 bits. 
+
+  private:  // Recursos privados a esta clase
+  
+    int _DB4, _DB5, _DB6, _DB7, _E1, _E2, _RS;
+    // Número de señales Arduino utilizadas para la conexión a la pantalla
+    
+    int _fila;  
+    // Última fila posicionada 1...4
+    
+    void enviaOrden1(unsigned char orden);
+    // Envía una orden al controlador 1 de la pantalla
+    
+    void enviaOrden2(unsigned char orden);
+    // Envía una orden al controlador 2 de la pantalla
+    
+    void enviaOrden12(unsigned char orden);
+    // Envía una orden a los controladores 1 y 2 de la pantalla
+    
+    void busDatos4Bits(unsigned char dato);
+    // Establece un valor para el bus de datos, utilizando los 4 bits
+    // menos significativos del parámetro
+    
+    void pulsoE1();
+    // Pulso a nivel alto en señal E1 para transferencia con el controlador 1
+    
+    void pulsoE2();
+    // Pulso a nivel alto en señal E1 para transferencia con el controlador 1
+
+  public:  // Miembros públicos de esta clase
+  
+    PantallaMidas(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS);
+    // Constructor al que se le indica qué señales Arduino están conectadas a las 
+    // señales de la pantalla
+    
+    void configura();
+    // Método que hay que utilizar en setup() para configurar e inicializar los 
+    // controladores de la pantalla
+    
+    void borra();
+    // Borra toda la información mostrada en la pantalla
+    
+    void posiciona(int fila, int columna);
+    // Posiciona el cursor en una fila (1...4) y columna (1...40)
+    
+    void escribeCadena(const char * cadena);
+    // Escribe una cadena de caracteres en la posición actual del cursor
+
+    void escribeCadena(const String cadena);
+    
+    void escribeCaracter(char caracter);
+    // Escribe un carácter en la posición actual del cursor
+
+    void muestraCursor(int muestralo);
+    // Hace que el cursor sea visible en función del buleano que se pasa por parámetro
+
+};
+
+#endif
+\end{lstlisting}
+
+\subsubsection{Código}
+
+\begin{lstlisting}
+#include <PantallaMidas.h>
+
+PantallaMidas::PantallaMidas(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS) {  
+// Constructor al que se le indica qué señales Arduino están conectadas a las 
+// señales de la pantalla
+
+  _DB4 = DB4;
+  _DB5 = DB5;
+  _DB6 = DB6;
+  _DB7 = DB7;
+  _E1 = E1;
+  _E2 = E2;
+  _RS = RS;
+  // Guarda los parámetros en datos privados
+  
+  _fila = 1;  // La fila inicial es la primera
+}
+
+void PantallaMidas::configura() {
+// Método que hay que utilizar en setup() para configurar e inicializar los 
+// controladores de la pantalla
+
+  pinMode(_DB4, OUTPUT);
+  pinMode(_DB5, OUTPUT);
+  pinMode(_DB6, OUTPUT);
+  pinMode(_DB7, OUTPUT);
+  pinMode(_E1, OUTPUT);
+  pinMode(_E2, OUTPUT);
+  pinMode(_RS, OUTPUT);
+  // Configura todas las señales como salidas digitales
+
+  digitalWrite(_E1, LOW);
+  digitalWrite(_E2, LOW);
+  digitalWrite(_RS, LOW);
+  // Pone a nivel bajo todas estas señales
+
+  // A continuación se ejecuta la secuencia de inicialización de ambos controladores
+  
+  delay(20);  // Espera 20 ms
+
+  busDatos4Bits(3);
+  pulsoE1();
+  pulsoE2();
+  // Transfiere a ambos controladores el valor 3 
+
+  delay(5);  // Espera 5 ms
+
+  busDatos4Bits(3);
+  pulsoE1();
+  pulsoE2();
+  // Transfiere a ambos controladores el valor 3 
+  
+  delay(1);  // Espera 1 ms
+
+  busDatos4Bits(3);
+  pulsoE1();
+  pulsoE2();
+  // Transfiere a ambos controladores el valor 3 
+  
+  delay(1);  // Espera 1 ms
+  
+  busDatos4Bits(2);
+  pulsoE1();
+  pulsoE2();
+  // Transfiere a ambos controladores el valor 2 
+
+  delay(1);  // Espera 1 ms
+
+  enviaOrden12(0x2D);
+  delay(1);
+  //0000101101
+  //0 0 0 0 1 DL N F - -
+  // Function set: 
+  // DL=0 establece bus de 4bits 
+  // N=1 establece manejo de 2 filas
+  // F=1 establece juego de caracteres de 5x11 puntos
+  
+  enviaOrden12(0x08);
+  delay(1);
+  // Display off
+
+  borra();
+  delay(2);
+  // Clear display
+  
+  enviaOrden12(0x06);
+  delay(1);
+  // 0 0 0 0 0 0 0 0 0 1 ID SH
+  // Entry mode set: 
+  // ID=1 para que el cursor se mueva hacia derecha
+  // SH=0 para que no haya desplazamiento de la pantalla
+  
+  enviaOrden12(0x0C);  // Display on
+  delay(1);
+}
 
 
+void PantallaMidas::muestraCursor(int muestralo) {
+// Hace que el cursor sea visible en función del buleano que se pasa por parámetro
+
+  unsigned char orden1, orden2;
+  
+  if (muestralo) {  // Si hay que mostrarlo ...
+    if (_fila < 3) {  // Si es para el controlador 1 ...
+      orden1 = 0x0F;  // Muestra cursor en 1
+      orden2 = 0x0C;  // Oculta cursor en 2
+    } else {
+      orden1 = 0x0C;  // Oculta cursor en 1
+      orden2 = 0x0F;  // Muestra cursor en 2
+    }
+  } else {  // Si hay que ocultarlo ...
+    orden1 = 0x0C;  // Oculta cursor en 1
+    orden2 = 0x0C;  // Oculta cursor en 2
+  }
+  enviaOrden1(orden1);  // Envía la orden al controlador 1
+  enviaOrden2(orden2);  // Envía la orden al controlador 2
+}
+
+
+void PantallaMidas::pulsoE1() {
+// Pulso a nivel alto en señal E1 para transferencia con el controlador 1
+
+  digitalWrite(_E1, HIGH);
+  digitalWrite(_E1, LOW);
+}
+
+void PantallaMidas::pulsoE2() {
+// Pulso a nivel alto en señal E2 para transferencia con el controlador 2
+
+  digitalWrite(_E2, HIGH);
+  digitalWrite(_E2, LOW);
+}
+
+
+void PantallaMidas::busDatos4Bits(unsigned char dato) {
+// Establece un valor para el bus de datos, utilizando los 4 bits
+// menos significativos del parámetro
+
+  if (dato & 0x01)  // Si el bit 0 es un 1, entonces ...
+      digitalWrite(_DB4, HIGH);  // pon la señal _DB4 a nivel alto
+      else digitalWrite(_DB4, LOW);  // si no, pon la señal _DB4 a nivel bajo
+      
+  if (dato & 0x02)  // Si el bit 1 es un 1, entonces ...
+      digitalWrite(_DB5, HIGH);  // pon la señal _DB5 a nivel alto
+      else digitalWrite(_DB5, LOW);  // si no, pon la señal _DB5 a nivel bajo
+      
+  if (dato & 0x04)  // Si el bit 2 es un 1, entonces ...
+      digitalWrite(_DB6, HIGH);  // pon la señal _DB6 a nivel alto
+      else digitalWrite(_DB6, LOW);  // si no, pon la señal _DB6 a nivel bajo
+      
+  if (dato & 0x08)  // Si el bit 3 es un 1, entonces ...
+      digitalWrite(_DB7, HIGH);  // pon la señal _DB7 a nivel alto
+      else digitalWrite(_DB7, LOW);  // si no, pon la señal _DB7 a nivel bajo
+}
+
+
+void PantallaMidas::borra() {
+// Borra toda la información mostrada en la pantalla
+
+  enviaOrden12(0x01); 
+  // Envía la orden de código 0x01 a los dos controladores
+  
+  delay(2);  // Espera 2 ms a que se termine de ejecutar
+}
+
+
+void PantallaMidas::escribeCadena(const char * cadena) {
+// Escribe una cadena de caracteres en la posición actual del cursor
+
+  int i;  // Contador para el bucle
+  
+  i = 0;  // Desde el comienzo de la cadena ...
+  while(cadena[i])  // Mientras no se llegue a un byte con valor 0 ...
+    escribeCaracter(cadena[i++]);  // Escribe el carácter y pasa al siguiente
+}
+
+void PantallaMidas::escribeCadena(const String cadena) {
+  //Escribe una cadena de string en la poisicion actual del cursor
+
+  int i;
+
+  i = 0;
+  while(cadena[i])
+    escribeCaracter(cadena[i++]);
+}
+
+
+void PantallaMidas::posiciona(int fila, int columna) {
+// Posiciona el cursor en una fila (1...4) y columna (1...40)
+
+  int posicion;  // Posición en la memoria interna del controlador
+
+  if (fila < 3) {   // Si es para el primer controlador ...
+    
+    posicion = (fila - 1) * 0x40 + columna - 1;
+    // La primera posición comienza en 0 para la fila 1 y en 0x40 para la fila 2
+    // Al avanzar en las columnas, se avanza en memoria a posiciones consecutivas
+    
+    enviaOrden1(0x80 | posicion);
+    // Envía una orden al controlador 1 con la nueva posición del cursor
+    
+  } else {  // Lo mismo para el controlador 2
+    posicion = (fila - 3) * 0x40 + columna - 1;
+    enviaOrden2(0x80 | posicion);
+  }
+  
+  delay(1);  // Espera 1 ms a que el cursor se posicione
+  _fila = fila;  // Recuerda la fila donde está situado el cursor
+}
+
+
+void PantallaMidas::enviaOrden1(unsigned char orden) {
+// Envía una orden al controlador 1 de la pantalla
+
+  digitalWrite(_RS, LOW);  // Pone la señal RS a nivel bajo
+  
+  busDatos4Bits(orden >> 4);  // Pone los 4 bits más significativos en el bus de datos
+  pulsoE1();  // Pulso en E1 para transferir esos bits
+  busDatos4Bits(orden & 0x0F);  // Pone los 4 bits menos significativos en el bus de datos
+  pulsoE1();  // Pulso en E1 para transferir esos bits
+}
+
+
+void PantallaMidas::enviaOrden2(unsigned char orden) {
+// Envía una orden al controlador 2 de la pantalla
+
+  digitalWrite(_RS, LOW);  // Pone la señal RS a nivel bajo
+  
+  busDatos4Bits(orden >> 4);  // Pone los 4 bits más significativos en el bus de datos
+  pulsoE2();  // Pulso en E2 para transferir esos bits
+  busDatos4Bits(orden & 0x0F);  // Pone los 4 bits menos significativos en el bus de datos
+  pulsoE2();  // Pulso en E2 para transferir esos bits
+}
+
+
+void PantallaMidas::enviaOrden12(unsigned char orden) {
+// Envía una orden a ambos controladores
+
+  enviaOrden1(orden);   // Envía la orden al controlador 1
+  enviaOrden2(orden);   // Envía la orden al controlador 2
+}
+
+
+void PantallaMidas::escribeCaracter(char caracter) {
+// Envía un carácter a la pantalla, que se mostrará en la posición actual del cursor. 
+// La posición del cursor se incrementa
+
+  digitalWrite(_RS, HIGH);   // Pone la señal RS a nivel alto
+  
+  busDatos4Bits(caracter >> 4);  // Pone los 4 bits más significativos en el bus de datos
+  if (_fila < 3)  // Si es para el controlador 1 ...
+    pulsoE1();   // pulso en E1 para transferir esos bits al controlador 1
+    else pulsoE2();  // si no, pulso en E2 para transferir esos bits al controlador 2
+    
+  busDatos4Bits(caracter & 0x0F);    // Pone los 4 bits menos significativos en el bus de datos
+  if (_fila < 3)  // Si es para el controlador 1 ...
+    pulsoE1();   // pulso en E1 para transferir esos bits al controlador 1
+    else pulsoE2();  // si no, pulso en E2 para transferir esos bits al controlador 2
+    
+  delay(1);  // Retardo de 1 ms para esperar a que se escriba el carácter
+}
+\end{lstlisting}
+
+\subsection{Teclado 4x4}
+
+\subsubsection{Cabeceira}
+
+\begin{lstlisting}
+#ifndef Teclado4x4_h
+#define Teclado4x4_h
+
+class Teclado4x4 {
+  private:
+    int _salidasFilas[4], * _entradasColumnas[4];
+    char _caracteres[17];
+    int _pulsado, _fila, _columna;
+    unsigned long _t;
+  public:
+    Teclado4x4(int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char *caracteres);
+    void configura();
+    int comprueba();
+};
+
+#endif
+\end{lstlisting}
+
+\subsubsection{Codigo}
+\begin{lstlisting}
+#include <Teclado4x4.h>
+#include <Arduino.h>
+
+Teclado4x4::Teclado4x4(int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char *caracteres) {
+  _salidasFilas[0] = F1;
+  _salidasFilas[1] = F2;
+  _salidasFilas[2] = F3;
+  _salidasFilas[3] = F4;
+  _entradasColumnas[0] = C1;
+  _entradasColumnas[1] = C2;
+  _entradasColumnas[2] = C3;
+  _entradasColumnas[3] = C4;
+  strcpy(_caracteres,caracteres);
+  // Guarda los parámetros en datos privados
+}
+
+
+void Teclado4x4::configura() {
+  int i;
+  //memcpy (_salidasFilas, salidasFilas, 4 * sizeof(int));
+  //memcpy (_entradasColumnas, entradasColumnas, 4 * sizeof(int));
+  //strcpy (_caracteres, caracteres);
+  for (i = 0; i < 4; i++)
+    pinMode(_entradasColumnas[i], INPUT_PULLUP);
+  _pulsado = 0;
+  _t = millis();
+}
+
+
+int Teclado4x4::comprueba () {
+  int iSalida, iEntrada;
+
+  if (millis() - _t < 10) 
+    return 0;
+    else _t = millis();
+
+  if (_pulsado) {
+    pinMode(_salidasFilas[_fila], OUTPUT);
+    digitalWrite(_salidasFilas[_fila], LOW);
+    _pulsado = digitalRead(_entradasColumnas[_columna]) == LOW;
+    pinMode(_salidasFilas[_fila], INPUT);    
+    if (_pulsado)
+      return 0;
+  }
+  
+  if (! _pulsado) {
+    for (iSalida = 0; iSalida < 4 && ! _pulsado; iSalida ++) {
+      pinMode(_salidasFilas[iSalida], OUTPUT);
+      digitalWrite(_salidasFilas[iSalida], LOW);
+      for (iEntrada = 0; iEntrada < 4 && ! _pulsado; iEntrada ++) {
+        if (digitalRead(_entradasColumnas[iEntrada]) == LOW) {
+          _pulsado = 1;
+          _fila = iSalida;
+          _columna = iEntrada;
+        }
+      }
+      pinMode(_salidasFilas[iSalida], INPUT);
+    }
+  }
+  
+  if (_pulsado)
+    return _caracteres[_fila * 4 + _columna];
+  else return 0;
+}
+\end{lstlisting}
+
+\subsection{Consola}
+\subsubsection{Cabeceira}
+\begin{lstlisting}
+#ifndef CONSOLA_H_
+#define CONSOLA_H_
+
+#include "PantallaMidas.h"
+#include "Teclado4x4.h"
+
+class Consola {
+  // Un objeto de esta clase representa a una consola compuesta por un teclado y una pantalla
+  
+  private:
+      PantallaMidas pantalla;
+      Teclado4x4 teclado;
+      // Cada objeto Consola contiene objetos para manejar el teclado y la pantalla
+      
+      char _cadena[41];
+      
+  public: 
+  
+      Consola(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS, int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char * caracteres);
+      // Constructor al que le proporcionamos los datos necesarios para inicializar la pantalla y el teclado
+      
+      void configura();  // Utilizado en el setup() para configurar estos dispositivos
+      
+      void visualizaEntero(int fila, int columna, unsigned int valor);
+      void visualizaReal(int fila, int columna, float valor, int nCaracteres, int nDecimales);
+      void visualizaCadena(int fila, int columna, char * cadena);  
+      void visualizaCadena(int fila, int columna, String cadena);
+      // Para visualizar información en pantalla
+      
+      char introduceCaracter();
+      int introduceEntero(int fila, int columna, int nCaracteres);
+      float introduceReal(int fila, int columna, int nCaracteres);
+      void introduceCadena(int fila, int columna, char * validos, int nCaracteres, char * resultado);
+      // Para introducir información por teclado
+      
+      void borraPantalla();
+      // Para borrar la pantalla
+};
+
+#endif
+\end{lstlisting}
+
+\subsubsection{Código}
+\begin{lstlisting}
+#include "Consola.h"
+#include <string.h>
+
+
+Consola::Consola(int DB4, int DB5, int DB6, int DB7, int E1, int E2, int RS, int F1, int F2, int F3, int F4, int C1, int C2, int C3, int C4, char * caracteres):
+    pantalla(DB4, DB5, DB6, DB7, E1, E2, RS),
+    teclado(F1, F2, F3, F4, C1, C2, C3, C4, caracteres) {
+}
+
+void Consola::configura() {
+  pantalla.configura();
+  teclado.configura();
+}
+
+void Consola::visualizaEntero(int fila, int columna, unsigned int valor) {
+  pantalla.posiciona(fila, columna);
+  unsigned long aux = valor;
+  //itoa(valor, _cadena, 10);
+  sprintf(_cadena,"%ld",aux);
+  pantalla.escribeCadena(_cadena);
+}
+
+void Consola::visualizaReal(int fila, int columna, float valor, int nCaracteres, int nDecimales) {
+  pantalla.posiciona(fila, columna);
+  dtostrf(valor, nCaracteres, nDecimales, _cadena);
+  pantalla.escribeCadena(_cadena);
+}
+
+void Consola::visualizaCadena(int fila, int columna, char * cadena) {
+  pantalla.posiciona(fila, columna);
+  pantalla.escribeCadena(cadena);
+}
+
+void Consola::visualizaCadena(int fila, int columna, String cadena) {
+  pantalla.posiciona(fila, columna);
+  pantalla.escribeCadena(cadena);
+}
+
+char Consola::introduceCaracter() {
+  char caracter;
+  do {
+    caracter = teclado.comprueba();
+  } while (caracter == 0);
+  return caracter;
+}
+
+void Consola::introduceCadena(int fila, int columna, char * validos, int nCaracteres, char * resultado) {
+  int i;
+  char caracter;
+  pantalla.posiciona(fila, columna);
+  for (i = 0; i < nCaracteres; i++)
+      pantalla.escribeCaracter(' ');
+  pantalla.posiciona(fila, columna);
+  pantalla.muestraCursor(true);
+  i = 0;
+  do {
+      caracter = introduceCaracter();
+      if (strchr(validos, caracter) != NULL && i < nCaracteres) {
+          resultado[i] = caracter;
+          i++;
+          pantalla.escribeCaracter(caracter);
+      }
+      if (caracter == 'i') {
+          i--;
+          pantalla.posiciona(fila, columna+i);
+          pantalla.escribeCaracter(' ');
+          pantalla.posiciona(fila, columna+i);
+      }
+  } while (caracter != 'e');
+  pantalla.muestraCursor(false);
+  resultado[i] = 0;
+}
+
+int Consola::introduceEntero(int fila, int columna, int nCaracteres) {
+  introduceCadena(fila, columna, "0123456789", nCaracteres, _cadena);
+  return atoi(_cadena);
+}
+
+float Consola::introduceReal(int fila, int columna, int nCaracteres) {
+  introduceCadena(fila, columna, "0123456789.-", nCaracteres, _cadena);
+  return atof(_cadena);
+}
+
+void Consola::borraPantalla() {
+  pantalla.borra();
+}
+\end{lstlisting}
+
+\subsection{ConnectEsp}
+\subsubsection{Cabeceira}
+\begin{lstlisting}
+#ifndef ConnectEsp_h
+#define ConnectEsp_h
+
+#include <Arduino.h>
+#include <Ethernet.h>
+#include <WiFiEsp.h>
+#include <ArduinoJson.h>
+#include <stdio.h>
+
+
+class ConnectEsp
+{
+
+private:
+	    WiFiEspClient _client;
+      //constructor da clase WifiEspClient
+
+	    char *_ssid;
+	    char *_pass;
+	    //Nome e contraseñas do AP ó que te conectas
+	    int _port;
+	    char *_host;
+	    //Porto e ip do servidor ó que te conectas
+
+	    int status = WL_IDLE_STATUS;
+		int pk_encargo;
+		int* pk_producto;
+		int* cantidade_producto;
+		char** name_producto;
+		char** localizacion_producto;
+		//variables para almacenar request de Json
+
+public:
+
+	    ConnectEsp (char ssid[], char password[], int port, char host[]);
+	    // Constructor ó que se lle pasa:
+	    // - ssid = nome da rede do AP
+	    // - password = contrasinal da rede do AP
+	    // - port = porto do host http
+	    // - host = direccion do host http
+
+	    void connectAP();
+	    // Hay que llamar a este método en la función setup() para conectarse a la red
+	    // Devolve True si se conectou co AP con éxito
+
+	    void httpRequest(char message[]);
+	    // Hay que llamar a este método en la función setup() para conectarse al servidor
+	    // Devolve True si se conectou servidor con éxito
+		bool get_Encargo_Completado_django();
+		// Función que fai un GET a tabla Encargo e devolve se hai encargos
+
+		int get_producto_Encargo_django();
+		//funcion que fai un GET a tabla Detalle_Encargo e devolve o numero de productos para o encargo
+
+		void get_Localizacion_django(int num_producto);
+		//función que fai un GET a tabla Producto e lle pasa por parametro o pk do producto
+
+		void post_encargo_completado();
+		//función que fai un PUT e modifica o rexitro "Completado" a True
+
+		//getters de variables privadas
+		inline int get_pk_Producto(int index){return pk_producto[index];}
+		inline char * get_localizacion_producto(int index){return localizacion_producto[index];}
+		inline char * get_name_Producto(int index){return name_producto[index];}
+		inline int get_cantidade_Producto(int index){return cantidade_producto[index];}
+		inline int get_pk_Encargo(){return pk_encargo;}
+};
+
+
+#endif
+
+\end{lstlisting}
+
+\subsubsection{Código}
+\begin{lstlisting}
+#include "ConnectEsp.h"
+
+
+ConnectEsp::ConnectEsp(char ssid[], char password[], int port, char host[])
+{
+  // Constructor ó que se lle pasa:
+  // - ssid = nome da rede do AP
+  // - password = contrasinal da rede do AP
+  // - port = porto do host http
+  // - address = direccion do host http (array de bytes)
+
+  _ssid = ssid;
+  _pass = password;
+  _port = port;
+  _host = host;
+  // Garda no obxecto estos parametros
+}
+
+
+void ConnectEsp::connectAP()
+{
+  // En el setup() del sketch hay que llamar a este método para conectarse a la red
+  // initialize serial for debugging
+  Serial.begin(115200);
+  // initialize serial for ESP module
+  Serial1.begin(115200);
+  // initialize ESP module
+
+    WiFi.init(&Serial1);
+
+    if (WiFi.status() == WL_NO_SHIELD)
+    {
+      Serial.println("WiFi shield not present");
+      // don't continue
+      while (true);
+    }
+
+    while (status != WL_CONNECTED)
+    {
+      Serial.print("Conectandose a rede: ");
+      Serial.println(_ssid);
+      status = WiFi.begin(_ssid,_pass);
+    }
+
+    Serial.println("Estás conectado á rede");
+}
+
+void ConnectEsp::httpRequest(char message[])
+{
+  // close any connection before send a new request
+  // this will free the socket on the WiFi shield
+  _client.stop();
+  _client.flush();
+
+  // if there's a successful connection
+  if (_client.connect(_host, _port)) {
+    Serial.println("Conectando co host...");
+
+    // send the HTTP PUT request
+    _client.println(message);
+    _client.print("Host: ");
+    _client.println(_host);
+    _client.println("Connection: close");
+    _client.println();
+  }
+  else
+  {
+    // if you couldn't make a connection
+    Serial.println("Connection failed");
+  }
+}
+
+
+bool ConnectEsp::get_Encargo_Completado_django()
+{
+
+  while(!_client.available());
+  String jsonString;
+  while (_client.available())
+  {
+    jsonString = _client.readStringUntil('\r');
+  }
+  DynamicJsonBuffer jsonBuffer;
+
+  JsonObject& root = jsonBuffer.parseObject(jsonString);
+  if (!root.success()) {
+    Serial.println("parseObject() failed");
+    //return;
+  }
+  int count = root["count"];
+  JsonArray& results = root["results"];
+
+  for (int i = 0; i < count; i++)
+  {
+    JsonObject& results_aux = results[i];
+    bool completado = results_aux["completado"];
+    if(!completado)
+    {
+      pk_encargo = results_aux["pk"];
+      return true;
+    }
+    return false;
+  }
+}
+
+int ConnectEsp::get_producto_Encargo_django()
+{
+  int count_productos_encargo = 0;
+  while(!_client.available());
+  String jsonString;
+  while (_client.available())
+  {
+    jsonString = _client.readStringUntil('\r');
+  }
+  Serial.println(jsonString);
+  StaticJsonBuffer<700> jsonBuffer;
+
+  JsonObject& root = jsonBuffer.parseObject(jsonString);
+  if (!root.success()) {
+    Serial.println("parseObject() failed");
+    //return;
+  }
+  int count = root["count"];
+
+  JsonArray& results = root["results"];
+
+  for (int i = 0; i < count; i++)
+  {
+    JsonObject& results_aux = results[i];
+    int pk_encargo_aux = results_aux["encargo"];
+
+    if(pk_encargo_aux == pk_encargo)
+    {
+      pk_producto[count_productos_encargo] = results_aux["producto"];
+      cantidade_producto[count_productos_encargo] = results_aux["cantidade"];;
+
+      count_productos_encargo++;
+    }
+  }
+  return count_productos_encargo;
+}
+
+void ConnectEsp::get_Localizacion_django(int num_producto)
+{
+
+  while(!_client.available());
+  String jsonString;
+  while (_client.available())
+  {
+    jsonString = _client.readStringUntil('\r');
+  }
+  Serial.println(jsonString);
+  StaticJsonBuffer<700> jsonBuffer;
+
+  JsonObject& root = jsonBuffer.parseObject(jsonString);
+  if (!root.success()) {
+    Serial.println("parseObject() failed");
+    //return;
+  }
+
+  localizacion_producto[num_producto] = root["localizacion"];
+  name_producto[num_producto] = root["name"];
+}
+
+void ConnectEsp::post_encargo_completado(/* arguments */)
+{
+
+  String content = "{\"completado\":true}";
+
+  if (_client.connect(_host, _port))
+  {
+    _client.print("PUT /encargos/");
+    _client.print(pk_encargo);
+    _client.println("/ HTTP/1.0");
+    _client.print("Host: ");
+    _client.println(_host);
+    _client.println("Accept: */*");
+    _client.println("Content-Length: " + content.length());
+    _client.println("Content-Type: application/x-www-form-urlencoded");
+    _client.println();
+    _client.println(content);
+  }
+}
+
+\end{lstlisting}
+
+\section{Código principal (main.cpp)}
+
+\begin{lstlisting}
+#include <Arduino.h>
+#include "Consola.h"
+#include <ConnectEsp.h>
+#include <string.h>
+
+//variables estáticas tipo String para a conexión AP
+static char ssid[] = "HUAWEI-Cw4a";
+static char pass[] = "9RR3VAxS";
+
+//variable estática tipo String do host do servidor
+static char host[]= "192.168.100.3";
+static int port = 8000;
+
+//declaramos constructor da clase ConnectEsp
+ConnectEsp ap (ssid, pass, port, host);
+
+//declaramos constructor da clase Consola
+Consola consola(32, 33, 34, 35, 36, 37, 38, 22, 23, 24, 25, 26, 27, 28, 29, "789s456-123d.0ei");
+
+void setup()
+{
+  // put your setup code here, to run once:
+  consola.configura();
+  // Configura as señaies Arduino e envía a secuencia de órdenes de inicialización
+  // á pantalla e teclado
+
+  ap.connectAP();
+  consola.visualizaCadena(-1, 0, "Conectouse a rede: ");
+  consola.visualizaCadena(-1, 20, ssid);
+  consola.visualizaCadena(4,1,"Pulsa ENT para continuar");
+
+  while(consola.introduceCaracter() != 'e');
+  consola.borraPantalla();
+}
+
+void loop()
+{
+    // put your main code here, to run repeatedly:
+    ap.httpRequest("GET /encargos/ HTTP/1.0");
+
+    if (ap.get_Encargo_Completado_django())
+    {
+      consola.visualizaCadena(-1, 0, "Encargo con id: ");
+      consola.visualizaEntero(-1, 18, ap.get_pk_Encargo());
+      consola.visualizaCadena(4,1,"Pulsa ENT para continuar");
+
+      while(consola.introduceCaracter() != 'e');
+      consola.borraPantalla();
+
+      ap.httpRequest("GET /detalle_encargo/ HTTP/1.0");
+      int n_p = 0;
+
+      n_p = ap.get_producto_Encargo_django();
+      Serial.println(n_p);
+
+      if (n_p > 0)
+      {
+        for (int i = 0; i < n_p; i++)
+        {
+          char to_send[30];
+          sprintf(to_send,"GET /productos/%d/ HTTP/1.0",2);
+          ap.httpRequest(to_send);
+          ap.get_Localizacion_django(i);
+
+          consola.visualizaCadena(1, 0, "Producto: ");
+          consola.visualizaCadena(1, 10, ap.get_name_Producto(i));
+          consola.visualizaCadena(2, 0, "Cantidade: ");
+          consola.visualizaCadena(2, 10, ap.get_name_Producto(i));
+          consola.visualizaCadena(3, 0, "Localizacion: ");
+          consola.visualizaCadena(3, 10, ap.get_localizacion_producto(i));
+          consola.visualizaCadena(4,0,"Pulsa ENT cando acabes");
+
+          while(consola.introduceCaracter() != 'e');
+          consola.borraPantalla();
+        }
+        ap.post_encargo_completado();
+
+        consola.visualizaCadena(-1, 0, "Encargo completado");
+        consola.visualizaCadena(4,0,"Pulsa ENT para ver o seguinte");
+
+        while(consola.introduceCaracter() != 'e');
+        consola.borraPantalla();
+      }
+      else
+      {
+        consola.visualizaCadena(-1, 0, "Non hai productos para este encargo");
+        consola.visualizaCadena(4,1,"Pulsa ENT para ver o seguinte");
+
+        while(consola.introduceCaracter() != 'e');
+        consola.borraPantalla();
+      }
+    }
+    else {
+      consola.visualizaCadena(-1, 0, "Non hai encargos");
+      consola.visualizaCadena(4,1,"Pulsa ENT para actualizar");
+
+      while(consola.introduceCaracter() != 'e');
+      consola.borraPantalla();
+    }
+}
+
+\end{lstlisting}
 
 \stopcontents[parts]
 
 \cleardoublepage
 
-\renewcommand{\documento}{Pliego de condicions}
+\renewcommand{\documento}{Pliego de condicións}
 \begin{tikzpicture}[remember picture, overlay]
   \draw[line width = 0.5pt] ($(current page.north west) + (-20pt,-800.5pt)$) rectangle ($(current page.south east) + (-133.5pt,-722.5pt)$);
 \end{tikzpicture}
@@ -1027,7 +2347,7 @@ As melloras que se poden aplicar poden ser as seguintes:
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addcontentsline{toc}{section}{Índice del documento Pliego de condiciones}
 \startcontents[parts]
-\begin{center}{\large \bf Índice do documento PLIEGO DE CONDICIONS}\end{center}
+\begin{center}{\large \bf Índice do documento PLIEGO DE CONDICIÓNS}\end{center}
 
 {\hypersetup{hidelinks}\printcontents[parts]{}{-1}{\setcounter{tocdepth}{5}}}
 
@@ -1037,11 +2357,38 @@ As melloras que se poden aplicar poden ser as seguintes:
 
 O obxeto deste documento é establecer os criterios para a relación establecida entre os axentes implicados nas obras definidas neste proxecto e servir de base para a execución do contrato entre o Enxeñeiro Director e a empresa demandate.
 
+O obxeto deste documento é establecer as condicións técnicas e facultativas que van servir de base para a execución deste proxecto.
+
+As condicións que se detallarán a continuación tratan de cumplir coa calidade esperada. No caso de non realizarse coas condicións reflexadas, o Enxeñeiro Director non se fai cargo dos fallo ou averías que poidan ocurrir no seu funcionamento.
+
 
 \chapter{Disposición de carácter xeral}
 
+Este proxecto axústase coas normativas electrónicas vixentes. Os cambios ou modificacións levadas a cabo unha vez rematado o proxecto so se poderían facer baixo a supervisión do Enxeñerio Xefe.
+
+A propiedade intelectual do autor e director do TFG rexirase polo Real Decreto Lexislativo 1/1996, do 12 de abril.
+
+\section{Normativa a seguir}
+A normativa a seguir vai ser:
+\begin{itemize}
+    \item Reglamento Electrotécnico para baixa tensión.
+    \item Norma UNE 21302-2: 1973: Vocabulario electrotécnico.
+    \item Norma UNE-EN 61000-4-3-1998: Compatibilidade electromagnética.
+    \item Norma UNE-EN 60439-1: Requisitos para cables e conductores.
+    \item Norma UNE 20-050-74: Códigos para marcas de resistencia e condensadores.
+    \item Norma UNE 20-524-75: Técnica de circuitos impresos.
+    \item Norma UNE 20-501-86: Equipos electrónicos e compoñentes.
+    \item Real Decreto 1215/1997: Normativa de Seguridade e Saúde no traballo.
+\end{itemize}
+
+\section{Pago e entrega do traballo}
 \chapter{Condicións particulares}
 
+\begin{itemize}
+    \item Todos os traballo serán realizados por técnicos preparados.
+    \item Todas as dudas que surxan despois da súa realización poderán ser resoltas polo Enxeñeiro Xefe.
+    \item O instalador poderá requerir do Enxeñeiro Xefe 
+\end{itemize}
 
 \stopcontents[parts]
 \cleardoublepage
@@ -1147,7 +2494,7 @@ O obxeto deste documento é establecer os criterios para a relación establecida
     \midrule
     \rowcolor[rgb]{ .863,  .902,  .945} \multicolumn{1}{|l}{Desplazamentos} & \multicolumn{1}{c}{Viaxes} & \multicolumn{1}{c}{30} & \multicolumn{1}{r}{0.85 \euro} & 25.50 \euro \\
     \midrule
-    \multicolumn{1}{|l}{Documentaci�n} & \multicolumn{1}{c}{h} & \multicolumn{1}{c}{60} & \multicolumn{1}{r}{10.00 \$} & 600.00 \euro \\
+    \multicolumn{1}{|l}{Documentación} & \multicolumn{1}{c}{h} & \multicolumn{1}{c}{60} & \multicolumn{1}{r}{10.00 \$} & 600.00 \euro \\
     \midrule
     \rowcolor[rgb]{ .863,  .902,  .945} \multicolumn{1}{|l}{Internet} & \multicolumn{1}{c}{h} & \multicolumn{1}{c}{80} & \multicolumn{1}{r}{0.60 \$} & 48.00 \$ \\
     \midrule
