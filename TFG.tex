@@ -218,9 +218,9 @@ Hoxe en día todo está conectado á rede, non so persoas conectadas a través d
 	\label{fig:IoT}
 \end{figure}
 
-\section{Obxeto}
+\section{Obxecto}
 
-O obxetivo principal deste proxecto vai ser o de realizar a monitorización de un procesado de un pedido ou picking nun almacén para un operario a través dun terminal de operador inalámbrico.
+O obxectivo principal do proxecto vai ser o de realizar a monitorización de un procesado de un pedido ou picking nun almacén para un operario a través dun terminal de operador inalámbrico.
 
 \begin{figure}[H]
 	\begin{center}
@@ -346,7 +346,7 @@ Neste proxecto vaise usar Arduino Mega 2560.
 
 O entorno de desenvolvemento integrado (Integrated Development Environment ou IDE) é un programa informático composto por un conxunto de ferramentas de programación. 
 
-Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom cun plugin chamado \textit{PlatformIO}, que nos vai permitir poder compilar, subir e depurar código na placa.
+Arduino ten un IDE propio chamado Arduino IDE, pero por comodidade vaise empregar Atom cun plugin chamado \textit{PlatformIO}, que vai permitir poder compilar, subir e depurar código na placa.
 
 \begin{figure}[H]
 	\begin{center}
@@ -443,7 +443,7 @@ Os principais métodos son:
 
 Django é un framework Open Source para o desenvolvemento de aplicacións web. Está escrito na lenguaxe \textbf{Python}. Contén un conxunto de compoñentes que van axudar a compoñer aplicacións web facil e rapidamente.
 
-Para usar unha estructura da base de datos, Django usa un mapeador obxeto-relacional \cite{DjangoDoc}.
+Para usar unha estructura da base de datos, Django usa un mapeador obxecto-relacional \cite{DjangoDoc}.
 
 
 \subsection{Django API RESTful}
@@ -469,7 +469,7 @@ Para usar unha estructura da base de datos, Django usa un mapeador obxeto-relaci
     );
     \end{minted}
     
-    \item Os \textit{routers} permiten definir as url da API, creada dunha maneira sencilla e arbitraria. Permiten definir que método de unha class view se vai executar ó chegar unha petición HTTP en función do método HTTP (GET, POST, PUT, PATCH...). Un exemplo sería:
+    \item Os \textit{routers} permiten definir as url da API, creada dunha maneira sencilla e arbitraria. Permiten definir que método de unha class view se vai executar ó chegar unha petición HTTP en función do método HTTP (GET, POST, PUT, PATCH...).
     
     \item As \textit{vistas} son extensións das class-view de Django, que permiten facilitar o enganche cos routers, serializadores e modelos.
     
@@ -615,7 +615,7 @@ Para poder indicarlle ó terminal que se completou unha caixa, vaise usar un tec
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[scale=0.75]{images/pinoutTeclado.png}
+		\includegraphics[scale=0.6]{images/pinoutTeclado.png}
 	\end{center}
 	\caption{Pinout Teclado 4x4}
 	\label{fig:TecladoStorm}
@@ -665,11 +665,11 @@ Arduino & Keypad Storm & Color \\
 
 Ademáis, pode comportarse como un procesador completo, con moita máis potencia que a maioría das placas Arduino.
 
-Existen moitos modelos de placas que integran ESP8266; o módulo ESP01 é un dos primeiros en aparecer co chip ESP8266 é un dos módulos máis sinxelos e baratos.
+Existen moitos modelos de placas que integran ESP8266; o módulo ESP01 é un dos primeiros en aparecer co chip ESP8266 é un dos módulos máis sinxelos e baratos. \cite{ESP2}
 
 \begin{figure}[H]
 	\begin{center}
-		\includegraphics[width=12cm]{images/esp8266_conexion.jpg}
+		\includegraphics[width=10cm]{images/esp8266_conexion.jpg}
 	\end{center}
 	\caption{Esquema módulo ESP8266}
 	\label{fig:EsquemaESP8266}
@@ -742,6 +742,8 @@ Neste capítulo vaise dividir en dúas partes: a parte de programación do Ardui
 
 \subsection{Diagrama de fluxo}
 
+Como se pode ver na seguinte figura \ref{fig:FluxoPrincipal} o código está dividido en \textit{setup}, que é a inicialización da placa Arduino e se vai executar so unha vez, e \textit{loop}, que é un bucle que se vai executar continuamente.
+
 \begin{figure}[H]
 	\begin{center}
 		\includegraphics[width=5cm]{images/diagrama_flujo_inicio.png}
@@ -766,7 +768,7 @@ Neste capítulo vaise dividir en dúas partes: a parte de programación do Ardui
 	\label{fig:FluxoLOOP}
 \end{figure}
  
- \subsection{Pantalla LCD}
+\subsection{Pantalla LCD}
 
 Vaise usar a clase \textit{PantallaMidas} para manexar a pantalla LCD, reflexada no documento ANEXO. 
 
@@ -967,7 +969,7 @@ class Detalle_Encargo(models.Model):
 )
 \end{minted}
 
-Para xenerar os cambios realizados nos modelos hai que facer migracións. Para iso, usaranse os comandos:
+Para xerar os cambios realizados nos modelos hai que facer migracións. Para iso, usaranse os comandos:
 
 \begin{minted}{bash}
   $ python manage.py makemigrations 
@@ -1286,6 +1288,7 @@ Para futuras versións deste proxecto, contémplanse as seguintes melloras:
 \bibitem{pantalla} \textit{DataSheet Pantalla Midas} Dispoñible en \url{http://www.farnell.com/datasheets/2021758.pdf?_ga=2.100621273.679229976.1530544951-2134847656.1521016684}
 \bibitem{teclado} \textit{KeyPad STORM 720TFX SERIES} Dispoñible en \url{http://www.storm-interface.com/storm-720tfx-series-16-button.html}
 \bibitem{ESP} \textit{ESP8266 Wiki}. Dispoñible en: \url{http://www.electrodragon.com/w/Category:ESP8266}
+\bibitem{ESP2} \textit{Guía para configurar un ESP-01}. Dispoñible en: \url{https://programarfacil.com/podcast/como-configurar-esp01-wifi-esp8266/} 
 \bibitem{WiFiEsp} \textit{WifiEsp Library}, A ESP8266 Library for Arduino. Dispoñible en: \url{https://github.com/bportaluri/WiFiEsp}.
 \bibitem{Json} \textit{Arduino JSON}, A JSON Library for Arduino. Dispoñible en: \url{https://arduinojson.org}.
 
@@ -1372,7 +1375,7 @@ Para futuras versións deste proxecto, contémplanse as seguintes melloras:
 \pagestyle{fancy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{section}{Índice del documento Anexos}
+\addcontentsline{toc}{section}{Índice do documento Anexos}
 \startcontents[parts]
 \cleardoublepage
 
@@ -1824,12 +1827,12 @@ int Teclado4x4::comproba () {
 #include "Teclado4x4.h"
 
 class Consola {
-  // Un obxeto de esta clase representa a unha consola composta por un teclado e unha pantalla
+  // Un obxecto de esta clase representa a unha consola composta por un teclado e unha pantalla
   
   private:
       PantallaMidas pantalla;
       Teclado4x4 teclado;
-      // Cada obxeto Consola contén obxetos para manexar teclado e pantalla
+      // Cada obxecto Consola contén obxectos para manexar teclado e pantalla
       
       char _cadea[41];
       
@@ -2041,7 +2044,7 @@ ConnectEsp::ConnectEsp(char ssid[], char password[], int port, char host[])
   _pass = password;
   _port = port;
   _host = host;
-  // Garda no obxecto estos parametros
+  // Garda no  estos parametros
 }
 
 
@@ -2326,7 +2329,7 @@ void loop()
 
 \cleardoublepage
 
-\renewcommand{\documento}{Pliego de condicións}
+\renewcommand{\documento}{Prego de condicións}
 \begin{tikzpicture}[remember picture, overlay]
   \draw[line width = 0.5pt] ($(current page.north west) + (-20pt,-800.5pt)$) rectangle ($(current page.south east) + (-133.5pt,-722.5pt)$);
 \end{tikzpicture}
@@ -2376,7 +2379,7 @@ void loop()
 \ \\
 \begin{normalsize}
 \begin{center}
-\part{\bf{PLIEGO DE CONDICIÓNS}}\thispagestyle{empty}
+\part{\bf{PREGO DE CONDICIÓNS}}\thispagestyle{empty}
 \end{center}
 \end{normalsize}
 \ \\
@@ -2400,7 +2403,7 @@ void loop()
 \pagestyle{fancy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{section}{Índice del documento Pliego de condiciones}
+\addcontentsline{toc}{section}{Índice do documento Prego de condicións}
 \startcontents[parts]
 \begin{center}{\large \bf Índice do documento PLIEGO DE CONDICIÓNS}\end{center}
 
@@ -2408,11 +2411,11 @@ void loop()
 
 \cleardoublepage
 
-\chapter{Obxeto do Pliego de Condicións}
+\chapter{Obxecto do Prego de Condicións}
 
-O obxeto deste documento é establecer as condicións que establecen a relación entre os axentes implicados nas obras definidas neste proxecto e servir de base para a execución do contrato entre o Enxeñeiro Director e a empresa demandate.
+O obxecto deste documento é establecer as condicións que establecen a relación entre os axentes implicados nas obras definidas neste proxecto e servir de base para a execución do contrato entre o Enxeñeiro Director e a empresa demandate.
 
-As condicións que se detallarán a continuación tratan de cumplir coa calidade esperada. No caso de non realizarse coas condicións reflexadas, o Enxeñeiro Director non se fai cargo dos fallo ou averías que poidan ocurrir no seu funcionamento.
+As condicións que se detallarán a continuación tratan de cumprir coa calidade esperada. No caso de non realizarse coas condicións reflexadas, o Enxeñeiro Director non se fai cargo dos fallo ou averías que poidan ocurrir no seu funcionamento.
 
 
 \chapter{Disposición de carácter xeral}
@@ -2527,7 +2530,7 @@ A normativa a seguir vai ser:
 \pagestyle{fancy}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\addcontentsline{toc}{section}{Índice del documento Orzamento}
+\addcontentsline{toc}{section}{Índice do documento Orzamento}
 \startcontents[parts]
 \begin{center}{\large \bf Índice do documento ORZAMENTO}\end{center}
 
